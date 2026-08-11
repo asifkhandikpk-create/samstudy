@@ -1,13 +1,50 @@
+
 body {
-    font-family: system-ui, -apple-system, sans-serif;
-    background: #eef2f7;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex !important;
+    flex-direction: column !important; 
+    align-items: center !important;     /* CRITICAL: Centers all children horizontally on the screen */
+    justify-content: flex-start !important; 
+    padding: 40px 20px !important;
+    height: auto !important;
     min-height: 100vh;
-    margin: 0;
-    padding: 20px;
     box-sizing: border-box;
+    background: #eef2f7;
+}
+
+.feedback-wall-container {
+    
+    width: 100% !important;
+    max-width: 650px; /* Kept wide as requested */
+    margin: 30px auto 0 auto !important; /* Centers the review wall horizontally under the card */
+    padding: 24px clamp(15px, 5vw, 30px);
+    border-radius: 16px;
+    
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.reviews-scroll-area {
+    display: flex !important;
+    flex-direction: column !important; /* Force items to stack vertically on separate grids */
+    gap: 14px !important; /* Clean margin spaces between reviews */
+    max-height: 450px; /* INCREASED HEIGHT: Allows more review rows to display on screen */
+    overflow-y: auto;  
+    padding-right: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.review-item-node {
+    display: block !important;
+    position: relative !important;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 16px;
+    margin: 0 !important; /* Let the scroll area gap variable manage spacing */
+    width: 100%;
+    box-sizing: border-box;
+    clear: both !important;
 }
 
 .feedback-card {
@@ -18,7 +55,21 @@ body {
     width: 100%;
     max-width: 480px;
     text-align: center;
+    height: auto !important;
+    margin: 0 auto !important; /* CRITICAL: Centers the form card horizontally */
+    box-sizing: border-box;
 }
+
+.reviews-scroll-area {
+    display: flex !important;
+    flex-direction: column !important; /* Stacks new reviews vertically on separate grids */
+    gap: 12px !important;
+    max-height: 320px; 
+    overflow-y: auto;  
+    padding-right: 6px;
+    width: 100%;
+}
+
 
 h2 {
     margin: 0 0 8px 0;
@@ -131,5 +182,46 @@ textarea:focus {
 
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+.no-reviews-fallback {
+    font-size: 13.5px;
+    color: #94a3b8;
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Individual User Review Card Blocks */
+
+.review-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.review-card-stars {
+    color: #ffc107; /* Bright gold star color metrics */
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.review-card-date {
+    font-size: 11px;
+    color: #94a3b8;
+}
+
+.review-card-comment {
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: #334155;
+    word-break: break-word;
+}
+
+@keyframes slideUpFade {
+    from { opacity: 0; transform: translateY(8px); }
     to { opacity: 1; transform: translateY(0); }
 }
