@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Your Feedback</title>
+    <link rel="stylesheet" href="rating-style.css">
+</head>
+<body>
+
+    <div class="feedback-card">
+        <h2>We Value Your Feedback</h2>
+        <p class="subtitle">Let us know how your political science learning experience is going!</p>
+
+        <!-- Star Interactive Node Wrapper -->
+        <div class="star-rating" role="radiogroup" aria-label="Rate your experience">
+            <button type="button" class="star-btn" data-value="1" aria-label="1 Star">
+                <svg class="star-icon" viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+            </button>
+            <button type="button" class="star-btn" data-value="2" aria-label="2 Stars">
+                <svg class="star-icon" viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+            </button>
+            <button type="button" class="star-btn" data-value="3" aria-label="3 Stars">
+                <svg class="star-icon" viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+            </button>
+            <button type="button" class="star-btn" data-value="4" aria-label="4 Stars">
+                <svg class="star-icon" viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+            </button>
+            <button type="button" class="star-btn" data-value="5" aria-label="5 Stars">
+                <svg class="star-icon" viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+            </button>
+        </div>
+
+        <!-- Feedback Form Node -->
+        <form id="feedbackForm">
+            <div class="form-group">
+                <label for="feedbackText">Your Comments</label>
+                <textarea id="feedbackText" placeholder="What did you like? What can we improve?..." required maxlength="500"></textarea>
+            </div>
+            <button type="submit" id="submitFeedbackBtn" disabled>Submit Feedback</button>
+        </form>
+
+        <!-- Hidden Success State Panel -->
+        <div id="successState" class="success-message" style="display: none;">
+            <svg class="success-icon" viewBox="0 0 24 24"><path d="M22,11.08V12a10,10,0,1,1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>
+            <h3>Thank You!</h3>
+            <p>Your review has been successfully recorded locally.</p>
+            <button type="button" onclick="window.location.href='index.html'">Back to Home</button>
+        </div>
+    </div>
+
+    <script src="rating-script.js"></script>
+</body>
+</html>

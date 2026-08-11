@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Document Viewer | SamStudy</title>
+      <link rel="stylesheet" href="./style.css">
+    <style>
+        /* PRO STUDOCU INTERFACE STYLING SYSTEM */
+        :root {
+            --canvas-bg: #1e293b; /* Premium dark background to let the white paper pop */
+            --paper-white: #ffffff;
+            --brand-primary:  #2c537a;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--canvas-bg);
+            color: #f8fafc;
+            padding-bottom: 60px;
+        }
+
+        /* Fixed Top Actions Bar Layout */
+        .viewer-topbar {
+            background-color:  rgba(245, 245, 245, 0.301);
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid #334155;
+        }
+
+        .logo-text { font-size: 20px; font-weight: 800; color: white; text-decoration: none; }
+        .logo-text span { color: var(--brand-primary); }
+
+        .btn-download {
+            background-color: var(--brand-primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-download:hover { background-color: #1e429f; }
+
+        /* Document Container Canvas Alignment */
+        .document-container {
+            max-width: 820px; /* Standard A4 paper width scale ratio on desktop screens */
+            margin: 90px auto 40px auto;
+            padding: 0 10px;
+        }
+
+        /* REALISTIC PAPER SHEET CORE BOX MODEL */
+        .paper-page {
+            background-color: var(--paper-white);
+            color: var(--text-dark);
+            min-height: 1050px; /* Gives the physical length ratio of an A4 page */
+            padding: 60px 70px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border-radius: 4px;
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        /* Document Typography Elements matching your raw file input variables */
+        .doc-header-title {
+            font-size: 15px;
+            font-weight: bold;
+            color:  #2c537a; /* Crimson color accent for answer keys */
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 8px;
+        }
+
+        .mcq-question {
+            font-family: serif , sans-serif , tahoma;
+           
+            font-size: 30px;
+            font-weight: 700;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #0f172a;
+        }
+
+        .mcq-option {
+             font-family: Arial, Helvetica, sans-serif , tahoma;
+            font-size: 20px;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            color: #334155;
+        }
+
+        .answer-key-box {
+             font-family: serif , sans-serif , tahoma;
+        
+            background-color: #f8fafc;
+            border: 1px dashed #cbd5e1;
+            padding: 20px;
+            margin-top: 32px;
+            border-radius: 6px;
+        }
+
+        .answer-line {
+             font-family: serif, sans-serif , tahoma;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #1e293b;
+        }
+    </style>
+</head>
+<body>
+
+    <!--  Topbar Navigation Element -->
+   
+          <header class="top-navbar">
+        <div class="search-wrapper">
+            <div class="search-field-container">
+                <!-- Magnifying Glass Icon Anchor -->
+                 <svg class="search-icon" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+                
+                <!-- Highly optimized search field element -->
+                <input 
+                    type="search" 
+                    placeholder="Search political science notes..." 
+                    class="search-input" 
+                    id="navbarSearchInput" 
+                    autocomplete="off"
+                    autocorrect="off" 
+                    autocapitalize="off"
+                    spellcheck="false"
+                    role="combobox"
+                    aria-expanded="false"
+                    aria-autocomplete="list"
+                    aria-controls="suggestions_listbox"
+                >
+            </div>   <!-- Dynamic dropdown suggestions list box overlay -->
+            <ul id="suggestions_listbox" role="listbox" class="suggestions-dropdown" style="display: none;">
+                <!-- Generated results inject here dynamically via JS -->
+            </ul>
+             <button id="downloadPdfBtn" class="download-nav-btn" title="Download Notes as PDF">
+                 <span>Download PDF</span>
+            </button>
+        </div>
+
+    </header>
+   
+
+    <!-- Main Workspace Area -->
+    <main class="document-container">
+        
+        <!--  WHITE PAPER SHEET FRAME BOX -->
+        <div class="paper-page" id="documentPaperStack">
+            
+            <!-- Injected Textbook Title Document Context Heading -->
+            <div class="doc-header-title" id="documentTitle">
+                Loading Academic Notes...
+            </div>
+
+            <!-- Content Area Body Section -->
+            <div id="documentContentBody">
+                <!-- JavaScript will construct your custom MCQs layout frames here dynamically -->
+            </div>
+
+     
+    </main>
+   
+
+   <div id="documentContentBody"><!-- Your text content loads here --></div>
+
+<!-- Updated navigation container with both buttons -->
+<div id="navigationControls" style="display: flex; gap: 20px; justify-content:center; margin-top: 30px;">
+    <button id="prevPageBtn" style="display: none;">&larr; Previous Page</button>
+    <button id="nextPageBtn" style="display: none;">Next Page &rarr;</button>
+</div>
+
+
+    <!-- AUTOMATED SCRIPT CDNS AND LOGIC LIBRARIES -->
+    <script src="https://cloudflare.com"></script>
+    <script src="data.js"></script>
+      <script src="search.js"></script>
+    <script src="reading-engine.js"></script>
+</body>
+</html>

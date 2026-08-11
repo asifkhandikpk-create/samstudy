@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SamStudy | Professional Political Science Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="site-header">
+        <div class="nav-container">
+            
+            <!-- Logo -->
+            <a href="#" class="brand-logo">
+                <svg viewBox="0 0 24 24" class="logo-icon">
+                    <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
+                    <path d="M22 12c0 .55-.45 1-1 1H3c-.55 0-1-.45-1-1s.45-1 1-1h18c.55 0 1 .45 1 1z" opacity=".2"/>
+                    <path d="M4.99 12.3V18c0 .55.45 1 1 1h12.02c.55 0 1-.45 1-1v-5.7l-7.01 3.82-7.01-3.82z"/>
+                </svg>
+                <span class="logo-text">Sam<span>Study</span></span>
+            </a>
+
+            <!-- Navigation Links & Dropdowns -->
+            <nav class="main-navigation">
+                 <div class="dropdown-wrapper">
+               
+                <button class="dropdown-trigger" id="exploreBtn" aria-haspopup="true" aria-expanded="false">
+                    More
+                    <span class="chevron-icon">▼</span>
+                </button>
+                
+                <!-- Dropdown Content List with ID -->
+                <ul class="dropdown-menu" id="exploreDropdown">
+                    <li class="dropdown-header">Political Science Fields</li>
+                    <li><a href="reading.html?topic=intro-to-polsci">Intro to Political Science</a></li>
+                    <li><a href="reading.html?topic=sub-divisions-of-polsci">Sub-Divisions of Political Science</a></li>
+                    <li><a href="reading.html?topic=public-administration">Public Administration</a></li>
+                  
+                </ul>
+            </div>
+                <a href="#courses" class="nav-link">Courses</a>
+                <a href="#resources" class="nav-link">Resources</a>
+            </nav>
+
+           <!-- search form -->
+<div class="search-container">
+    <form class="search-form" id="navbarSearchForm">
+        <input type="text" placeholder="Search political science..." class="search-input" id="navbarSearchInput" autocomplete="off">
+        <button type="submit" class="search-submit">
+            <svg class="search-icon" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+        </button>
+    </form>
+   
+    <div class="search-suggestions-box" id="searchSuggestionsBox"></div>
+</div>
+<a href="feedback.html">Give Feedback</a>
+<!-- ADD THIS ITEM INSIDE YOUR EXISTING NAVBAR LINKS/CONTAINER -->
+<button class="nav-sidebar-trigger-btn" id="navbarSidebarToggle" aria-label="Open Course Curriculum" aria-controls="navStudySidebar">
+    <!-- Custom Syllabus/Book Stack Vector SVG Icon -->
+    <svg class="nav-trigger-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        <line x1="9" y1="6" x2="15" y2="6"></line>
+        <line x1="9" y1="10" x2="15" y2="10"></line>
+    </svg>
+    <span class="nav-btn-label">Topics</span>
+</button>
+
+
+<!-- PASTE THIS SLIDE-OUT SIDEBAR LAYOUT AT THE VERY BOTTOM OF YOUR HTML PAGE -->
+<aside class="nav-sliding-sidebar collapsed" id="navStudySidebar" aria-label="Curriculum Overview">
+    <div class="nav-sidebar-inner">
+        
+        <!-- Sidebar Header Panel with Close Handle Button -->
+        <div class="nav-sidebar-header">
+            <div>
+                <h3>Areas of Study</h3>
+                <p>Political Science Core Curriculum</p>
+            </div>
+            <button class="nav-sidebar-close-btn" id="navSidebarClose" aria-label="Close Menu">×</button>
+        </div>
+
+        <!-- Topics Module Display Stack List -->
+        <div class="nav-sidebar-topics-list">
+            
+            <!-- Module Item 1: Political Systems -->
+            <div class="nav-sidebar-card">
+                <div class="card-icon-box sys-theme">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
+                <div class="card-body-text">
+                    <h4>Political Systems</h4>
+                    <p>Comparative structural analysis of global democracies and autocracies.</p>
+                </div>
+            </div>
+
+            <!-- Module Item 2: International Relations -->
+            <div class="nav-sidebar-card">
+                <div class="card-icon-box global-theme">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                </div>
+                <div class="card-body-text">
+                    <h4>Global Relations</h4>
+                    <p>Foreign policies, treaties, international law, and diplomatic structures.</p>
+                </div>
+            </div>
+
+            <!-- Module Item 3: Political Theories -->
+            <div class="nav-sidebar-card">
+                <div class="card-icon-box theory-theme">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                </div>
+                <div class="card-body-text">
+                    <h4>Political Philosophy</h4>
+                    <p>Classical ideas, social contracts, power, justice, and state legitimacy.</p>
+                </div>
+            </div>
+
+            <!-- Module Item 4: Public Policy -->
+            <div class="nav-sidebar-card">
+                <div class="card-icon-box policy-theme">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                    </svg>
+                </div>
+                <div class="card-body-text">
+                    <h4>Public Policy</h4>
+                    <p>Formulation of law matrices, civil administration, and institutional agendas.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</aside>
+
+<!-- Black Dim Overlay Tint Background Element -->
+<div class="sidebar-dim-background-overlay" id="sidebarOverlay"></div>
+
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="hero-section">
+        <div class="hero-content">
+            <h1>Master Political Science</h1>
+            <p>Deep dive into world regimes, political theories, and global diplomatic strategies with guided structural modules.</p>
+            <button class="btn btn-primary btn-large">Start Learning Now</button>
+        </div>
+         
+
+    </main>
+      <section class="courses">
+        <h2>Popular Subjects</h2>
+        <div class="card-container">
+            <div class="card">
+              
+                  <li><a href="reading.html?topic=public-administration">Public Administration</a></li>
+                <div class="card">
+                    <h3>Public Administration</h3>
+                    <p>Decision Making, Theories of organization , public vs private ad, bureaucracy.</p>
+                </div>
+        
+            </div>
+            <div class="card">
+                    
+                  <li><a href="reading.html?topic=sub-divisions-of-polsci">Sub-Divisions of Political Science</a></li>
+                <div class="card">
+                  <h3>sub-divisions</h3>
+                    <p>Comparative politics , local government , international relations.</p>
+                </div>
+          
+            </div>
+            <div class="card">
+              
+              <li><a href="reading.html?topic=intro-to-polsci">Intro to Political Science</a></li>
+                <div class="card">
+                    <h3>Fundamentals of Political science</h3>
+                    <p>Examine justice, rights, liberty,law, state , government , and  sovereignty.</p>
+                </div>
+         
+            </div>
+        </div>
+    </div>
+    </section>
+     <!-- Professional Institutional Footer Section -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <!-- Copyright Attribution Left Column -->
+            <div class="footer-copyright">
+                <p>&copy; 2026 SamStudy Inc. All rights reserved.</p>
+            </div>
+            
+           <!-- Legal Content Document Navigation Links Row -->
+<nav class="footer-nav">
+    <!-- Wrap the Privacy Policy button in a direct hyperlink path -->
+    <a href="./privacy-policy.html" style="text-decoration: none;">
+        <button class="footer-btn" id="privacyBtn">Privacy Policy</button>
+    </a>
+    <span class="footer-divider">&bull;</span>
+      <a href="terms.html" style="text-decoration: none;"></a>
+    <button class="footer-btn" id="termsBtn" >Terms & Conditions</button>
+</nav>
+
+  
+<script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

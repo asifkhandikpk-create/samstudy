@@ -1,0 +1,135 @@
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background: #eef2f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.feedback-card {
+    background: #ffffff;
+    padding: clamp(20px, 5vw, 40px);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 480px;
+    text-align: center;
+}
+
+h2 {
+    margin: 0 0 8px 0;
+    color: #1a1d20;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+.subtitle {
+    color: #6c757d;
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+/* Responsive Star Layout Elements */
+.star-rating {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.star-btn {
+    background: none;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.star-btn:hover {
+    transform: scale(1.2);
+}
+
+.star-icon {
+    width: clamp(32px, 8vw, 44px);
+    height: clamp(32px, 8vw, 44px);
+    fill: #e9ecef;
+    stroke: #ced4da;
+    stroke-width: 1.5;
+    transition: fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s ease;
+}
+
+/* Star Modifier States managed via JS */
+.star-btn.hovered .star-icon,
+.star-btn.selected .star-icon {
+    fill: #ffc107;
+    stroke: #ffb300;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #495057;
+}
+
+textarea {
+    width: 100%;
+    height: 120px;
+    padding: 12px;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    resize: none;
+    box-sizing: border-box;
+    font-size: 15px;
+    transition: border-color 0.2s ease;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+#submitFeedbackBtn {
+    width: 100%;
+    padding: 14px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+#submitFeedbackBtn:disabled {
+    background: #ced4da;
+    cursor: not-allowed;
+}
+
+/* Success Card Override Styles */
+.success-message {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+.success-icon {
+    width: 64px;
+    height: 64px;
+    stroke: #28a745;
+    stroke-width: 2;
+    fill: none;
+    margin-bottom: 16px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
