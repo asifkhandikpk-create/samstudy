@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="viewport" content="width=1200">
+
     <meta name="google-site-verification" content="Bk5HtEhOP4a4pjRiIyxjr1tG6oKHsIXYzXAQ-nSAOqQ" />
     <title>SamStudy | Professional Political Science Portal</title>
     <link rel="stylesheet" href="style.css">
@@ -20,7 +21,7 @@
                     <path d="M22 12c0 .55-.45 1-1 1H3c-.55 0-1-.45-1-1s.45-1 1-1h18c.55 0 1 .45 1 1z" opacity=".2"/>
                     <path d="M4.99 12.3V18c0 .55.45 1 1 1h12.02c.55 0 1-.45 1-1v-5.7l-7.01 3.82-7.01-3.82z"/>
                 </svg>
-                <span class="logo-text">Sam<span>Study</span></span>
+                <span class="logo-text">Sam<span>Study-hub</span></span>
             </a>
 
             <!-- Navigation Links & Dropdowns -->
@@ -73,7 +74,7 @@
 </button>
 
 
-<!-- PASTE THIS SLIDE-OUT SIDEBAR LAYOUT AT THE VERY BOTTOM OF YOUR HTML PAGE -->
+<!--  SIDEBAR LAYOUT -->
 <aside class="nav-sliding-sidebar collapsed" id="navStudySidebar" aria-label="Curriculum Overview">
     <div class="nav-sidebar-inner">
         
@@ -165,6 +166,7 @@
          
 
     </main>
+    
       <section class="courses">
         <h2>Popular Subjects</h2>
         <div class="card-container">
@@ -197,6 +199,142 @@
             </div>
         </div>
     </div>
+    <div class="sam-paper-wrapper">
+    <!-- The Main Sheet of Paper -->
+    <div class="academic-sheet">
+        <!-- Artistic Paperclip Element -->
+        <div class="paper-clip-graphic">
+            <svg width="34" height="80" viewBox="0 0 34 80" fill="none" xmlns="http://w3.org">
+                <path d="M14 74V18C14 13.5817 17.5817 10 22 10C26.4183 10 30 13.5817 30 18V56C30 62.6274 24.6274 68 18 68C11.3726 68 6 62.6274 6 56V18C6 9.16344 13.1634 2 22 2C30.8366 2 38 9.16344 38 18V50" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+        </div>
+
+        <!-- Sheet Header -->
+        <div class="sheet-header-row">
+            <div class="institution-branding">
+                <!-- Academic Crest SVG Graphic -->
+                <svg class="crest-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1e3a8a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                    <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/>
+                </svg>
+                <div class="branding-text">
+                    <span class="dept-title">Political Science Division</span>
+                    <span class="series-title">Evaluation Matrix</span>
+                </div>
+            </div>
+            <div class="session-tracker-badge">
+                <span id="question-counter">Completed: 0</span>
+            </div>
+        </div>
+
+        <!-- Decorative Subtle Rule Divider -->
+        <div class="sheet-divider-line"></div>
+
+        <!-- Sheet Content Body -->
+        <div class="sheet-body-content">
+            <div class="question-meta-tag">SECTION A: GENERAL THEORY</div>
+            <h3 id="trivia-question" class="paper-question-text">Loading verification matrix...</h3>
+            
+            <div id="trivia-options" class="paper-options-stack">
+                <!-- Dynamic Choices Loaded Here -->
+            </div>
+        </div>
+        
+        <!-- Document Feedback & Explanatory Appendix -->
+        <div id="trivia-explanation" class="appendix-box hidden">
+            <div class="appendix-status">
+                <span id="feedback-icon" class="status-marker"></span>
+                <span id="result-status" class="status-label"></span>
+            </div>
+            <p id="explanation-text" class="appendix-desc"></p>
+        </div>
+
+        <!-- Action Button -->
+        <button id="next-btn" class="paper-next-action hidden" onclick="loadNextQuestion()">
+            Advance to Next Metric
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </button>
+    </div>
+    
+    <!-- Visual Trick: Creates a realistic effect of stacked papers underneath -->
+    <div class="under-sheet-shadow-1"></div>
+    <div class="under-sheet-shadow-2"></div>
+</div>
+<!-- Full Width Non-Conflicting Roadmap Component -->
+<div class="sam-rm-master-wrapper">
+    <div class="sam-rm-canvas-grid">
+        
+        <!-- Header Section -->
+        <div class="sam-rm-main-heading-block">
+            <h2 class="sam-rm-display-title">Academic Learning Roadmap</h2>
+            <p class="sam-rm-display-subtitle">Your structured step-by-step masterclass from foundation to advanced governance systems.</p>
+        </div>
+
+        <!-- The Timeline Track Engine -->
+        <div class="sam-rm-track-vertical">
+            
+            <!-- Step 1: Active Phase -->
+            <div class="sam-rm-step-row sam-rm-state-active">
+                <div class="sam-rm-indicator-pillar">
+                    <div class="sam-rm-node-circle">01</div>
+                    <div class="sam-rm-connector-line"></div>
+                </div>
+                <div class="sam-rm-info-card">
+                    <span class="sam-rm-status-badge sam-rm-badge-active">Active Module</span>
+                    <h4 class="sam-rm-card-heading">Introduction to Political Science</h4>
+                    <p class="sam-rm-card-paragraph">Examine justice, rights, liberty,law, state , government , and  sovereignty.</p>
+                    <a href="#intro" class="sam-rm-card-link-action">Launch Module → <li><a href="reading.html?topic=intro-to-polsci"></a></li></a>
+                </div>
+            </div>
+
+            <!-- Step 2: Locked Phase -->
+            <div class="sam-rm-step-row sam-rm-state-locked">
+                <div class="sam-rm-indicator-pillar">
+                    <div class="sam-rm-node-circle">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    </div>
+                    <div class="sam-rm-connector-line"></div>
+                </div>
+                <div class="sam-rm-info-card">
+                    <span class="sam-rm-status-badge sam-rm-badge-locked">Coming Soon</span>
+                    <h4 class="sam-rm-card-heading">Western Political Thought</h4>
+                    <p class="sam-rm-card-paragraph">Deconstruct classical frameworks from Plato to Marx and apply their structural philosophies to modern civic dilemmas.</p>
+                </div>
+            </div>
+
+            <!-- Step 3: Locked Phase -->
+            <div class="sam-rm-step-row sam-rm-state-locked">
+                <div class="sam-rm-indicator-pillar">
+                    <div class="sam-rm-node-circle">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    </div>
+                    <div class="sam-rm-connector-line"></div>
+                </div>
+                <div class="sam-rm-info-card">
+                    <span class="sam-rm-status-badge sam-rm-badge-locked">Coming Soon</span>
+                    <h4 class="sam-rm-card-heading">Comparative Politics</h4>
+                    <p class="sam-rm-card-paragraph">Analyse cross-border regional dynamics, electoral designs, and the tactical survival mechanics of hybrid regimes.</p>
+                </div>
+            </div>
+
+            <!-- Step 4: Locked Phase -->
+            <div class="sam-rm-step-row sam-rm-state-locked">
+                <div class="sam-rm-indicator-pillar">
+                    <div class="sam-rm-node-circle">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    </div>
+                </div>
+                <div class="sam-rm-info-card">
+                    <span class="sam-rm-status-badge sam-rm-badge-locked">Coming Soon</span>
+                    <h4 class="sam-rm-card-heading">Public Administration</h4>
+                    <p class="sam-rm-card-paragraph">Examine street-level bureaucracy, budgeting architecture, and administrative operational crises during resource shortages.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
     </section>
      <!-- Professional Institutional Footer Section -->
     <footer class="site-footer">
@@ -213,8 +351,10 @@
         <button class="footer-btn" id="privacyBtn">Privacy Policy</button>
     </a>
     <span class="footer-divider">&bull;</span>
-      <a href="terms.html" style="text-decoration: none;"></a>
-    <button class="footer-btn" id="termsBtn" >Terms & Conditions</button>
+    <a href="terms.html" style="text-decoration: none;">
+    <button class="footer-btn" id="termsBtn">Terms & Conditions</button>
+</a>
+
 </nav>
 
   

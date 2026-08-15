@@ -12,13 +12,13 @@ body {
 }
 
 .feedback-wall-container {
-    
+   /* background: #ffffff;*/
     width: 100% !important;
-    max-width: 650px; /* Kept wide as requested */
-    margin: 30px auto 0 auto !important; /* Centers the review wall horizontally under the card */
-    padding: 24px clamp(15px, 5vw, 30px);
+   /* max-width: 650px; /* Kept wide as requested */
+    /*margin: 30px auto 0 auto !important; /* Centers the review wall horizontally under the card */
+    padding: 14px clamp(15px, 5vw, 30px);
     border-radius: 16px;
-    
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
     box-sizing: border-box;
     text-align: left;
 }

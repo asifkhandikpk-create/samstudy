@@ -97,29 +97,7 @@ if (searchInput && suggestionsBox) {
 }
 
 
-    // 1. DETAILED LEGAL CONTENT REPOSITORY
-    
-   // Keep the overlay functionality ONLY for your Terms & Conditions button
-const termsBtn = document.getElementById("termsBtn");
-const closeLegalBtn = document.getElementById("closeLegalBtn");
-const legalOverlay = document.getElementById("legalOverlay");
-const legalTitle = document.getElementById("legalTitle");
-const legalContent = document.getElementById("legalContent");
-
-if (termsBtn) {
-    termsBtn.addEventListener("click", function() {
-        legalOverlay.style.display = "flex";
-        legalTitle.innerText = "Terms & Conditions";
-        legalContent.innerHTML = "<p>Your terms and conditions text layout goes right here...</p>";
-    });
-}
-
-if (closeLegalBtn) {
-    closeLegalBtn.addEventListener("click", function() {
-        legalOverlay.style.display = "none";
-    });
-}
-
+ 
     // 2. TOGGLE ACTION EVENT LISTENERS
     if (privacyBtn && legalOverlay) {
         privacyBtn.addEventListener('click', () => {
@@ -201,3 +179,124 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+function setRealHeight() {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+window.addEventListener('resize', setRealHeight);
+window.addEventListener('load', setRealHeight);
+const quizData = [
+    {
+        question: "Which political philosopher famously described life in the state of nature as 'solitary, poor, nasty, brutish, and short'?",
+        options: [{ text: "John Locke", isCorrect: false }, { text: "Thomas Hobbes", isCorrect: true }, { text: "Jean-Jacques Rousseau", isCorrect: false }, { text: "Niccolò Machiavelli", isCorrect: false }],
+        explanation: "Thomas Hobbes argued this in Leviathan (1651). He believed a strong government is vital to prevent chaotic civil war."
+    },
+    {
+        question: "What term describes a modern political system managed completely by digital code and machine algorithms?",
+        options: [{ text: "Oligarchy", isCorrect: false }, { text: "Algocracy", isCorrect: true }, { text: "Technocracy", isCorrect: false }, { text: "Plutocracy", isCorrect: false }],
+        explanation: "Algocracy is governance where machine algorithms structure public administrative decisions and regulations."
+    },
+    {
+        question: "Who authored 'The Prince', a foundational text on political realism and strategic statecraft?",
+        options: [{ text: "Aristotle", isCorrect: false }, { text: "Karl Marx", isCorrect: false }, { text: "Niccolò Machiavelli", isCorrect: true }, { text: "Plato", isCorrect: false }],
+        explanation: "Niccolò Machiavelli wrote The Prince, separating traditional ethics from real-world political power strategies."
+    },
+    {
+        question: "Max Weber's concept of 'Rational-Legal Authority' is most closely associated with which structural concept?",
+        options: [{ text: "Feudal Monarchy", isCorrect: false }, { text: "Modern Bureaucracy", isCorrect: true }, { text: "Charismatic Dictatorship", isCorrect: false }, { text: "Tribal Chiefdoms", isCorrect: false }],
+        explanation: "Max Weber identified modern bureaucracy as the ultimate example of rational-legal authority ruling through written laws."
+    },
+    {
+        question: "Which subfield of political science primarily compares different national constitutional frameworks and party systems?",
+        options: [{ text: "International Relations", isCorrect: false }, { text: "Comparative Politics", isCorrect: true }, { text: "Public Policy", isCorrect: false }, { text: "Political Philosophy", isCorrect: false }],
+        explanation: "Comparative Politics focuses on evaluating internal country mechanics, party elections, and constitutional behaviors across state boundaries."
+    }
+];
+
+let questionsAnsweredCount = 0;
+let currentActiveQuestion = null;
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+function initQuiz() {
+    questionsAnsweredCount = 0;
+    document.getElementById('question-counter').innerText = `Completed: ${questionsAnsweredCount}`;
+    shuffleArray(quizData);
+    getNewRandomQuestion();
+}
+
+function getNewRandomQuestion() {
+    if (questionsAnsweredCount >= 500) {
+        alert("Evaluation complete. You have reached the maximum safe session limit of 500 questions!");
+        initQuiz();
+        return;
+    }
+
+    const randomIndex = Math.floor(Math.random() * quizData.length);
+    currentActiveQuestion = quizData[randomIndex];
+    
+    document.getElementById('trivia-question').innerText = currentActiveQuestion.question;
+    
+    const optionsContainer = document.getElementById('trivia-options');
+    optionsContainer.innerHTML = '';
+    
+    document.getElementById('trivia-explanation').className = "appendix-box hidden";
+    document.getElementById('next-btn').classList.add('hidden');
+
+    const optionsCopy = [...currentActiveQuestion.options];
+    shuffleArray(optionsCopy);
+
+    optionsCopy.forEach(option => {
+        const button = document.createElement('button');
+        button.innerText = option.text;
+        button.classList.add('paper-choice-row');
+        button.onclick = () => evaluateChoice(button, option.isCorrect, currentActiveQuestion.explanation);
+        optionsContainer.appendChild(button);
+    });
+}
+
+function evaluateChoice(selectedButton, isCorrect, descriptionText) {
+    const buttons = document.querySelectorAll('.paper-choice-row');
+    const feedbackBox = document.getElementById('trivia-explanation');
+    const statusHeader = document.getElementById('result-status');
+    const descParagraph = document.getElementById('explanation-text');
+    const iconSpan = document.getElementById('feedback-icon');
+    
+    buttons.forEach(btn => {
+        btn.disabled = true;
+        if (btn.innerText === currentActiveQuestion.options.find(o => o.isCorrect).text) {
+            btn.classList.add('correct');
+        }
+    });
+
+    feedbackBox.classList.remove('hidden');
+    descParagraph.innerText = descriptionText;
+    
+    if (isCorrect) {
+        selectedButton.classList.add('correct');
+        statusHeader.innerText = "PASSED: Verified Fact";
+        iconSpan.innerText = "✓";
+        feedbackBox.className = "appendix-box correct-pane";
+    } else {
+        selectedButton.classList.add('wrong');
+        statusHeader.innerText = "DISPROVED: Counter Theory";
+        iconSpan.innerText = "✗";
+        feedbackBox.className = "appendix-box wrong-pane";
+    }
+
+    questionsAnsweredCount++;
+    document.getElementById('question-counter').innerText = `Completed: ${questionsAnsweredCount}`;
+    document.getElementById('next-btn').classList.remove('hidden');
+}
+
+function loadNextQuestion() {
+    getNewRandomQuestion();
+}
+
+document.addEventListener("DOMContentLoaded", initQuiz);
