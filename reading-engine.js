@@ -233,36 +233,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
-/**
- * Passive SEO Meta-Updater
- * Safely changes browser headers without altering HTML elements.
- */
-function initializePassiveSEO() {
-    const topics = document.querySelectorAll('.sam-topic-block-wrapper');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            // Trigger as soon as the top of a new topic enters the screen (20%)
-            if (entry.isIntersecting) {
-                const headingElement = entry.querySelector('.notes-document-title');
-                
-                if (headingElement) {
-                    const cleanTitle = headingElement.innerText.trim();
-                    
-                    // 1. Update ONLY the tab title (Topic Large, Brand Small)
-                    document.title = `${cleanTitle} | Sambaloch Study`;
-                    
-                    // 2. Safely generate a URL parameter matching the raw ID from data.js
-                    const topicId = entry.firstElementChild ? entry.firstElementChild.parentElement.id || 'notes' : 'notes';
-                    window.history.pushState(null, '', `?subject=${topicId}`);
-                }
-            }
-        });
-    }, {
-        threshold: 0.2,
-        rootMargin: "-10% 0px -70% 0px" // Focuses purely on what the user is currently reading
-    });
-
-    topics.forEach(topic => observer.observe(topic));
-}
-

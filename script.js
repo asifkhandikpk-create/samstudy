@@ -98,40 +98,37 @@ if (searchInput && suggestionsBox) {
 
 
  
-    // 2. TOGGLE ACTION EVENT LISTENERS
-    if (privacyBtn && legalOverlay) {
-        privacyBtn.addEventListener('click', () => {
-            legalTitle.innerText = "Privacy Policy";
-            legalContent.innerHTML = privacyDetails;
-            legalOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Stop background scrolling
-        });
-    }
+    // 🛠️ SAFE LEGAL BUTTON ENGINE
+const termsBtn = document.getElementById("termsBtn");
+const closeLegalBtn = document.getElementById("closeLegalBtn");
 
-    if (termsBtn && legalOverlay) {
-        termsBtn.addEventListener('click', () => {
+// Create safe fallback definitions so the browser never throws a "not defined" crash
+const legalOverlay = document.getElementById("legalOverlay");
+const legalTitle = document.getElementById("legalTitle");
+const legalContent = document.getElementById("legalContent");
+
+if (termsBtn) {
+    termsBtn.addEventListener("click", function() {
+        // Only run if the HTML element actually exists on the current page
+        if (typeof legalOverlay !== 'undefined' && legalOverlay) {
+            legalOverlay.style.display = "flex";
+        }
+        if (typeof legalTitle !== 'undefined' && legalTitle) {
             legalTitle.innerText = "Terms & Conditions";
-            legalContent.innerHTML = termsDetails;
-            legalOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-    }
+        }
+        if (typeof legalContent !== 'undefined' && legalContent) {
+            legalContent.innerHTML = "<p>Your terms and conditions text layout goes right here...</p>";
+        }
+    });
+}
 
-    // 3. CLOSURE MECHANICS
-    if (closeLegalBtn && legalOverlay) {
-        closeLegalBtn.addEventListener('click', () => {
-            legalOverlay.classList.remove('active');
-            document.body.style.overflow = ''; // Restore background scroll frame
-        });
-
-        // Close if click lands anywhere outside the white text card boundaries
-        legalOverlay.addEventListener('click', (e) => {
-            if (e.target === legalOverlay) {
-                legalOverlay.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-    }
+if (closeLegalBtn) {
+    closeLegalBtn.addEventListener("click", function() {
+        if (typeof legalOverlay !== 'undefined' && legalOverlay) {
+            legalOverlay.style.display = "none";
+        }
+    });
+}
 
 // ========================================================
 // NAVBAR OVERLAY SLIDEOUT SIDEBAR ENGINE

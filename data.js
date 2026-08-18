@@ -9,7 +9,7 @@ const polSciDatabase = {
         views: "14.2K",
         institution: "Global Academic Curriculum",
         academicYear: "2025/2026",
-        author: "Sam-Study Editorial",
+        author: "Zabalix Editorial",
         sections: [
             {
                 type: "textBlock",
@@ -51,7 +51,7 @@ const polSciDatabase = {
         views: "14.2K",
         institution: "Global Academic Curriculum",
         academicYear: "2025/2026",
-        author: "Sam-Study Editorial",
+        author: "Zabalix Editorial",
         sections: [
             {
                 type: "textBlock",
@@ -88,7 +88,7 @@ const polSciDatabase = {
         views: "14.2K",
         institution: "Global Academic Curriculum",
         academicYear: "2025/2026",
-        author: "Sam-Study Editorial",
+        author: "Zabalix Editorial",
         sections: [
             {
                 type: "textBlock",
@@ -113,7 +113,7 @@ const polSciDatabase = {
         views: "14.2K",
         institution: "Global Academic Curriculum",
         academicYear: "2025/2026",
-        author: "Sam-Study Editorial",
+        author: "Zabalix Editorial",
         sections: [
             {
                 type: "textBlock",
@@ -138,7 +138,7 @@ const polSciDatabase = {
         views: "14.2K",
         institution: "Global Academic Curriculum",
         academicYear: "2025/2026",
-        author: "Sam-Study Editorial",
+        author: "Zabalix Editorial",
         sections: [
             {
                 type: "textBlock",
@@ -163,7 +163,7 @@ const polSciDatabase = {
         views: "14.2K",
         institution: "Global Academic Curriculum",
         academicYear: "2025/2026",
-        author: "Sam-Study Editorial",
+        author: "Zabalix Editorial",
         sections: [
             {
                 type:"textBlock",
@@ -190,7 +190,7 @@ const polSciDatabase = {
         views: "14.2K",
         institution: "Global Academic Curriculum",
         academicYear: "2025/2026",
-        author: "Sam-Study Editorial",
+        author: "Zabalix Editorial",
         sections: [
             {
                 type:"textBlock", 
@@ -223,7 +223,7 @@ const polSciDatabase = {
         views: "14.2K",
         institution: "Global Academic Curriculum",
         academicYear: "2025/2026",
-        author: "Sam-Study Editorial",
+        author: "Zabalix Editorial",
         sections: [
          
             {
@@ -244,7 +244,7 @@ const polSciDatabase = {
         views: "14.1K",
         institution: "Global Academic Curriculum",
         academicYear: "2025/2026",
-        author: "Sam-Study Editorial",
+        author: "Zabalix Editorial",
         sections: [
             {
                 type: "listBlock",
@@ -289,7 +289,7 @@ const polSciDatabase = {
         views: "14.2K",
         institution: "Global Academic Curriculum",
         academicYear: "2025/2026",
-        author: "Sam-Study Editorial",
+        author: "Zabalix Editorial",
         sections: [
             {
                 type:"textBlock", 

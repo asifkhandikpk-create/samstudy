@@ -1046,7 +1046,7 @@ body {
 
     /* 2. Target every main division layout block on your website */
     div, section, header, nav, main, footer, form {
-        width: 100% !important;
+       /* width: 100% !important;*/
         max-width: 100% !important;
         box-sizing: border-box !important; /* Forces paddings inside screen boundaries */
         float: none !important; /* Disables ancient broken positioning rules */
@@ -1820,4 +1820,1065 @@ body {
     .sam-rm-node-circle { width: 30px; height: 30px; font-size: 0.75rem; }
     .sam-rm-indicator-pillar { width: 30px; }
     .sam-rm-connector-line { top: 30px; }
+}
+/* ==========================================================================
+   MASTER UNIFIED MOBILE LAYOUT RESOLUTION ENGINE (Applies up to 768px screens)
+   ========================================================================== */
+@media (max-width: 768px) {
+
+    /* --- 1. GLOBAL ENVIRONMENT & HEADROOM FIXES --- */
+    html, body {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important; /* Completely eliminates horizontal page shaking */
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    body {
+        padding-top: 140px !important; /* Force-overrides the broken 600px blanket padding gap */
+    }
+
+    /* Target all block groups to sit flush within mobile glass viewports */
+    div, section, header, nav, main, footer, form {
+        box-sizing: border-box !important;
+    }
+
+    /* Prevent mobile keyboard tap inputs from auto-zooming viewports on Safari/iOS */
+    input, textarea, select, button {
+        font-size: 16px !important;
+    }
+
+    /* --- 2. UNIVERSAL NAV-BAR ROW BREAKERS (Fixes Index & Reading Page Headers) --- */
+    .site-header, .navbar, .top-navbar {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        padding: 12px 0 !important;
+        background-color: #ffffff !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+        z-index: 9999 !important;
+    }
+
+    /* Forces squished text items, search inputs, and buttons into elegant vertical layout stacks */
+    .nav-container, .nav-containerr, .search-wrapper {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: stretch !important;
+        gap: 10px !important;
+        width: 100% !important;
+        height: auto !important;
+        padding: 0 16px !important;
+    }
+
+    /* Center branding identity labels */
+    .brand-logo, .nav-logo {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+    }
+
+    /* Pull navigation link strings horizontally side-by-side but safely centered under the logo */
+    .main-navigation, .footer-nav, .nav-links {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        align-items: center !important;
+        flex-wrap: wrap !important;
+        gap: 16px !important;
+        width: 100% !important;
+        margin-top: 2px !important;
+    }
+
+    /* --- 3. FLUID ENGINE INPUTS & ACTION BUTTONS --- */
+    .search-container, .search-wrapperr, .search-field-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        position: relative !important;
+    }
+
+    .search-input, #navbarSearchInput {
+        width: 100% !important;
+        padding: 10px 14px 10px 40px !important; /* Generous space allocation for loop icons */
+        font-size: 16px !important;
+        box-sizing: border-box !important;
+    }
+
+    .search-icon {
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+    }
+
+    /* Stretch buttons to provide comfortable touch targets */
+    .nav-download-btn, .download-nav-btn, .btn-large {
+        width: 100% !important;
+        max-width: 100% !important;
+        justify-content: center !important;
+        text-align: center !important;
+        padding: 12px 20px !important;
+        display: flex !important;
+    }
+
+    /* --- 4. HERO SECTION & VECTOR GRAPHICS STABILIZATION --- */
+    .hero-section {
+        margin-top: 30px !important; /* Cushion against floating headers */
+        padding: 40px 16px !important;
+        text-align: center !important;
+    }
+
+    /* Keep graphic roadmaps and deck canvas frames from scaling past screen edges */
+    .hero-content img, .roadmap-section img, .slide-canvas, .slide-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
+        padding: 20px 16px !important;
+    }
+
+    /* Shift presentation sliding arrow control bubbles underneath deck content blocks */
+    .nav-arrow {
+        position: absolute !important;
+        top: auto !important;
+        bottom: -60px !important;
+        transform: none !important;
+    }
+    .prev-arrow { left: calc(50% - 54px) !important; }
+    .next-arrow { right: calc(50% - 54px) !important; }
+    .progress-indicator-bar { margin-top: 80px !important; }
+
+    /* --- 5. COMPACT TYPOGRAPHY & CARD SYSTEMS GRID RESCALE --- */
+    .hero-content h1, .courses h2, .deck-header h1 {
+        font-size: 26px !important;
+        line-height: 1.25 !important;
+        letter-spacing: -0.5px !important;
+    }
+
+    .hero-content p, #documentContentBody p {
+        font-size: 15px !important;
+        line-height: 1.5 !important;
+    }
+
+    /* Stack cards array listings neatly vertically instead of floating side-by-side */
+    .card-container, .nav-sidebar-topics-list {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 16px !important;
+        width: 100% !important;
+    }
+
+    .card, .nav-sidebar-card, .legal-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 20px !important;
+    }
+    
+    .legal-card {
+        width: 92% !important; /* Give modals side breathing margin room gaps */
+        max-height: 85vh !important;
+    }
+}
+/* ==========================================================================
+   ACADEMIC LEARNING ROADMAP MOBILE-FIRST OVERHAUL
+   ========================================================================== */
+
+/* 1. Base Mobile Layout Framework (Default for Phones & Tablets) */
+.sam-rm-master-wrapper {
+    width: 100% !important;
+    padding: 24px 16px !important;
+    background-color: #f6f8fa !important;
+}
+
+.sam-rm-canvas-grid {
+    max-width: 100% !important;
+    margin: 0 auto !important;
+}
+
+/* Mobile Typography Adjustments */
+.sam-rm-display-title {
+    font-size: 26px !important;
+    font-weight: 800 !important;
+    color: #0a192f !important;
+    text-align: center !important;
+    margin-bottom: 8px !important;
+    line-height: 1.2 !important;
+}
+
+.sam-rm-display-subtitle {
+    font-size: 14px !important;
+    color: #64748b !important;
+    text-align: center !important;
+    margin-bottom: 32px !important;
+    line-height: 1.5 !important;
+}
+
+/* Transform the track container to allow free-flowing columns */
+.sam-rm-track-vertical {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 24px !important;
+}
+
+/* Convert horizontal rows into a standalone block structure on mobile */
+.sam-rm-step-row {
+    display: flex !important;
+    flex-direction: column !important; /* Forces layout to stack top-to-bottom */
+    align-items: center !important;
+    gap: 12px !important;
+    width: 100% !important;
+}
+
+/* Reposition the indicator numbering pillar to look beautiful as a top badge header */
+.sam-rm-indicator-pillar {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+}
+
+.sam-rm-node-circle {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 14px !important;
+    font-weight: bold !important;
+    z-index: 10 !important;
+}
+
+/* Hide the connecting line vector on mobile to eliminate side-overlapping glitches */
+.sam-rm-connector-line {
+    display: none !important;
+}
+
+/* Expand the step content details card to fill full mobile widths beautifully */
+.sam-rm-info-card {
+    width: 100% !important;
+    background: #ffffff !important;
+    padding: 20px !important;
+    border-radius: 12px !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+    text-align: center !important; /* Centers card details for optimal tracking balance */
+}
+
+/* Smooth active phase styling states mapping */
+.sam-rm-state-active .sam-rm-node-circle {
+    background-color: #2c537a !important;
+    color: #ffffff !important;
+}
+
+/* Locked configurations theme defaults */
+.sam-rm-state-locked .sam-rm-node-circle {
+    background-color: #e2e8f0 !important;
+    color: #64748b !important;
+}
+
+.sam-rm-status-badge {
+    display: inline-block !important;
+    padding: 4px 12px !important;
+    border-radius: 20px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    margin-bottom: 12px !important;
+}
+
+.sam-rm-badge-active { background-color: #eff6ff !important; color: #1a56db !important; }
+.sam-rm-badge-locked { background-color: #f1f5f9 Imporatnt; color: #475569 !important; }
+
+.sam-rm-card-heading {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    margin-bottom: 8px !important;
+}
+
+.sam-rm-card-paragraph {
+    font-size: 14px !important;
+    color: #475569 !important;
+    line-height: 1.5 !important;
+    margin-bottom: 16px !important;
+}
+
+.sam-rm-card-link-action {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 10px 20px !important;
+    background-color: #2c537a !important;
+    color: #ffffff !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    border-radius: 8px !important;
+    width: 100% !important; /* Full width touch button target */
+    max-width: 240px !important;
+    margin: 0 auto !important;
+    transition: all 0.2s ease !important;
+}
+
+
+/* ==========================================================================
+   2. DESKTOP OPTIMIZATIONS (Snaps back into timeline row layout on larger displays)
+   ========================================================================== */
+@media (min-width: 768px) {
+    
+    .sam-rm-master-wrapper {
+        padding: 60px 40px !important;
+    }
+
+    .sam-rm-canvas-grid {
+        max-width: 900px !important;
+    }
+
+    .sam-rm-display-title {
+        font-size: 32px !important;
+        text-align: left !important;
+    }
+
+    .sam-rm-display-subtitle {
+        font-size: 16px !important;
+        text-align: left !important;
+        margin-bottom: 48px !important;
+    }
+
+    /* Restore horizontal layout split row flow variables */
+    .sam-rm-step-row {
+        flex-direction: row !important;
+        align-items: flex-start !important;
+        gap: 32px !important;
+    }
+
+    .sam-rm-indicator-pillar {
+        width: auto !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        height: 100% !important;
+        position: relative !important;
+    }
+
+    /* Redraw timeline connection lines for wider display monitors */
+    .sam-rm-connector-line {
+        display: block !important;
+        width: 2px !important;
+        background-color: #cbd5e1 !important;
+        flex-grow: 1 !important;
+        min-height: 80px !important;
+        margin: 8px 0 !important;
+    }
+
+    .sam-rm-info-card {
+        text-align: left !important;
+        padding: 30px !important;
+    }
+
+    .sam-rm-card-link-action {
+        width: auto !important;
+        margin: 0 !important;
+    }
+}
+/* ==========================================================================
+   FORCE ROADMAP CARDS TO BE RECTANGULAR ON MOBILE SCREEN DEVICES
+   ========================================================================== */
+@media (max-width: 768px) {
+    
+    .sam-rm-info-card {
+        width: 100% !important;
+        /* Less padding on top/bottom, more on sides makes it a crisp rectangle */
+        padding: 14px 20px !important; 
+        text-align: left !important; /* Shifting text left keeps rows short and wide */
+        border-radius: 10px !important;
+    }
+
+    /* Force details layout contents inside the card to stack inline tightly */
+    .sam-rm-card-heading {
+        font-size: 17px !important;
+        margin-bottom: 4px !important;
+    }
+
+    .sam-rm-card-paragraph {
+        font-size: 13.5px !important;
+        line-height: 1.4 !important;
+        margin-bottom: 12px !important;
+    }
+
+    /* Keep the launcher button tight and wide to complete the rectangular feel */
+    .sam-rm-card-link-action {
+        width: 100% !important;
+        max-width: 100% !important; /* Spans full card row width horizontally */
+        padding: 8px 16px !important; /* Thin vertical touch padding bar design */
+        border-radius: 6px !important;
+        font-size: 13.5px !important;
+    }
+}
+/* ==========================================================================
+   COMPLETE UNBOXING ENGINE - INCREASED HIGH-BREATHING MARGINS
+   ========================================================================== */
+
+/* Applies globally to Windows and Mobile Viewports */
+.sam-paper-wrapper, 
+section.courses:has(.academic-sheet) {
+    width: 100% !important;
+    max-width: 100% !important;
+    background: transparent !important; /* Strips the outer container card box layer */
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+}
+
+.academic-sheet {
+    /* calc(100% - 80px) creates clean, balanced 40px margin walls on screen margins */
+    width: calc(100% - 80px) !important; 
+    max-width: 1240px !important;       /* Clean boundary limits on massive desktop monitors */
+    margin: 60px auto !important;       /* Massive 60px top/bottom margin gap to clear adjacent elements */
+    padding: 44px 32px !important;      /* Immersive inner space padding for layout depth */
+    background: #ffffff !important;     /* Clean canvas sheet directly over the homepage */
+    border: none !important;
+    border-left: 6px solid #2c537a !important; /* Asymmetrical modern designer blueprint accent line */
+    border-radius: 0 20px 20px 0 !important;   /* Sleek rounded trailing edges */
+    box-shadow: 0 15px 35px rgba(44, 83, 122, 0.05) !important; /* High-end ultra-soft depth shadow */
+    box-sizing: border-box !important;
+}
+
+/* Fix option button layouts to span beautifully across the unboxed workspace */
+.paper-options-stack {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important; /* 2 columns on desktop, 1 on mobile */
+    gap: 16px !important;
+    width: 100% !important;
+    margin-top: 28px !important;
+}
+
+.paper-choice-row {
+    width: 100% !important;
+    background: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    padding: 16px 20px !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    color: #334155 !important;
+    text-align: left !important;
+    transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+/* Interactive sliding indentation accent upon active tap or hover selection */
+.paper-choice-row:hover, 
+.paper-choice-row:active {
+    background: linear-gradient(135deg, #2c537a, #1d354e) !important;
+    color: #ffffff !important;
+    border-color: #2c537a !important;
+    padding-left: 28px !important; /* Premium structural slider motion */
+}
+
+/* --- Mobile Device Responsive Compression Adjustment --- */
+@media (max-width: 768px) {
+    .academic-sheet {
+        /* calc(100% - 40px) locks down crisp, uniform 20px margins on narrow phone frames */
+        width: calc(100% - 40px) !important; 
+        margin: 40px auto !important;       /* Comfortable vertical block separation context gap */
+        padding: 28px 18px !important;      /* Clean mobile padding metrics */
+    }
+    
+    .paper-options-stack {
+        grid-template-columns: 1fr !important; /* Drops safely to clean vertical blocks on mobile */
+        gap: 12px !important;
+    }
+    
+    .paper-question-text {
+        font-size: 18px !important;
+    }
+}
+/* ==========================================================================
+   MASTER SLIDING NAV-SIDEBAR OVERHAUL (FIXES CLIPPING & SHIFTING)
+   ========================================================================== */
+
+/* Applies to mobile phone screen boundaries up to 768px wide */
+@media (max-width: 768px) {
+
+    /* 1. Prevent the sliding sidebar drawer from overflowing or clipping */
+    .nav-sliding-sidebar {
+        position: fixed !important;
+        top: 0 !important;
+        right: 0 !important; /* Locks anchor explicitly to the right edge */
+        width: 100% !important; /* Spans full width on mobile for clean focus */
+        max-width: 320px !important; /* Comfortable reading profile layout size */
+        height: 100vh !important;
+        background: #ffffff !important;
+        z-index: 10000 !important; /* Layers safely above sticky top headers */
+        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1) !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 2. Add extra horizontal safe padding space to stop text clipping */
+    .nav-sidebar-inner {
+        padding: 24px 20px !important; /* Generous side padding keeps text visible */
+        display: flex !important;
+        flex-direction: column !important;
+        height: 100% !important;
+        overflow-y: auto !important; /* Allows smooth scrolling inside the menu */
+        box-sizing: border-box !important;
+    }
+
+    /* 3. Standardize Header Text Typography inside the panel */
+    .nav-sidebar-header h3 {
+        font-size: 18px !important; /* Crisp, legible print size */
+        font-weight: 800 !important;
+        color: #0a192f !important;
+        margin: 0 0 4px 0 !important;
+        line-height: 1.3 !important;
+    }
+
+    .nav-sidebar-header p {
+        font-size: 12.5px !important;
+        color: #64748b !important;
+        margin: 0 !important;
+    }
+
+    /* 4. Optimize the vertical topic items layout stack */
+    .nav-sidebar-topics-list {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+        margin-top: 16px !important;
+        width: 100% !important;
+    }
+
+    /* 5. Fluid topic rows to maximize layout real estate */
+    .nav-sidebar-card {
+        display: flex !important;
+        flex-direction: row !important; /* Keeps icon and text side-by-side cleanly */
+        align-items: flex-start !important;
+        gap: 12px !important;
+        padding: 12px !important;
+        background: #f8fafc !important;
+        border: 1px solid #f1f5f9 !important;
+        border-radius: 10px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .card-icon-box {
+        width: 36px !important;
+        height: 36px !important;
+        flex-shrink: 0 !important; /* Stops the icon container from getting squished */
+    }
+
+    .card-body-text h4 {
+        font-size: 14px !important;
+        font-weight: 700 !important;
+        margin: 0 0 2px 0 !important;
+        color: #1e293b !important;
+    }
+
+    .card-body-text p {
+        font-size: 12px !important;
+        line-height: 1.4 !important;
+        color: #64748b !important;
+    }
+}
+/* ==========================================================================
+   PRODUCTION-GRADE: ULTRA-THIN AMAZON MOBILE NAVBAR (LOW PROFILE)
+   ========================================================================== */
+@media (max-width: 768px) {
+    
+    /* 1. Low clearance headroom so your website content sits near the top */
+    body {
+        padding-top: 68px !important; 
+    }
+
+    /* 2. Micro-height sticky header box (Amazon mobile's compact footprint) */
+    header.site-header,
+    .site-header {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: auto !important; /* Dynamically compresses to tightly hug our elements */
+        background-color: #ffffff !important; /* Your clean white website background */
+        border-bottom: 1px solid #e2e8f0 !important;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04) !important;
+        z-index: 10000 !important;
+        padding: 4px 0 !important; /* Shrunk vertical padding to absolute minimal bounds */
+        overflow: visible !important;
+    }
+
+    /* 3. The Two-Row Smart Split Flex Matrix */
+    .nav-container {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important; /* Permits search bar to drop cleanly into row 2 */
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        height: auto !important;
+        padding: 0 8px !important; /* Tight side margins maximize horizontal space */
+        gap: 2px 0 !important; /* Micro 2px gap space between Row 1 and Row 2 */
+        overflow: visible !important;
+    }
+
+     /* ==========================================================================
+   HERO CALL-TO-ACTION BUTTON - COMPACT RESPONSIVE SCALE DOWN
+   ========================================================================== */
+@media (max-width: 768px) {
+    
+    /* Target the button with high class specificity to override previous layout rules */
+    button.btn.btn-primary.btn-large,
+    .btn-large {
+        width: auto !important;             /* Cancels out any block or 100% full-width stretches */
+        max-width: max-content !important;  /* Snugly fits right around your inner textual label width */
+        display: inline-flex !important;    /* Keeps it behaving like a centered desktop baseline inline button */
+        align-items: center !important;
+        justify-content: center !important;
+        margin: 0 auto !important;          /* Keeps it perfectly centered inside your hero grid container */
+        
+        /* Shrunk padding parameters down to match textbook desktop sizing metrics */
+        padding: 8px 20px !important;       
+        font-size: 14px !important;         /* Delicate, crisp typography instead of oversized text headers */
+        letter-spacing: 0.2px !important;
+        border-radius: 20px !important;     /* Smooth, lightweight rounded profile curve edges */
+        box-shadow: 0 4px 6px rgba(44, 83, 122, 0.15) !important;
+    }
+}
+}
+/* ==========================================================================
+   PRODUCTION MODULE: LOW-PROFILE MICRO 2-ROW SPLIT MOBILE NAVBAR
+   ========================================================================== */
+@media (max-width: 768px) {
+    
+    /* 1. Low clearance headroom so your website content sits near the top */
+    body {
+        padding-top: 76px !important; 
+    }
+
+    /* 2. Micro-height sticky header container (Ultra-thin compact profile) */
+    header.site-header,
+    .site-header,
+    header {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: auto !important; /* Dynamically compresses to tightly hug our two rows */
+        background-color: #ffffff !important; /* Your clean white website background */
+        border-bottom: 1px solid #e2e8f0 !important;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04) !important;
+        z-index: 10000 !important;
+        padding: 4px 0 !important; /* Shrunk vertical padding to absolute minimal bounds */
+        overflow: visible !important;
+    }
+
+    /* 3. The Two-Row Smart Split Flex Matrix Grid */
+    .nav-container {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important; /* CRITICAL: Permits the search bar to drop cleanly into Row 2 */
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        height: auto !important;
+        padding: 0 10px !important; /* Tight side padding looks crisp and compact */
+        gap: 4px 0 !important; /* Minimal 4px vertical gap space between Row 1 and Row 2 */
+        overflow: visible !important;
+    }
+
+    /* ==========================================
+       ROW 1: COHESIVE LOGO & INLINE ACTION MENUS
+       ========================================== */
+    
+    /* Small, elegant brand logo layout */
+    .brand-logo {
+        order: 1 !important;
+        margin: 0 !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 4px !important;
+        text-decoration: none !important;
+        
+    }
+
+    .logo-icon {
+        width: 14px !important; /* Ultra-thin shrunk icon graphics */
+        height: 14px !important;
+        fill: #2c537a !important; /* Core theme accent blue */
+        display: inline-block !important;
+         margin-top: 15px !important;
+           margin: 5 !important;
+    }
+
+    .logo-text {
+        font-size: 15px !important; /* Delicate, razor-sharp micro-typography */
+        font-weight: 750 !important;
+        color: #0a192f !important; /* Your deep dark primary ink text color */
+        letter-spacing: -0.4px !important;
+        display: inline-block !important;
+          margin-top: 15px !important;
+               margin: 5 !important;
+    }
+    
+    .logo-text span {
+        color: #2c537a !important;
+    }
+
+    /* Align action items tight horizontally next to the logo */
+    .main-navigation {
+        order: 2 !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        gap: 8px !important; /* Compact grouping gap prevents row break stretching */
+        width: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .nav-link, .dropdown-trigger {
+        display: inline-block !important;
+        font-size: 11.5px !important; /* Clean minimal text scaling bounds */
+        font-weight: 700 !important;
+        color: #475569 !important; /* Neutral muted theme layout text links */
+        background: transparent !important;
+        border: none !important;
+        padding: 2px !important;
+    }
+
+    /* Keep Feedback text element small and color-correct */
+    a[href="feedback.html"] {
+        order: 3 !important;
+        display: inline-block !important;
+        font-size: 11.5px !important;
+        font-weight: 700 !important;
+        color: #2c537a !important; /* Matches your core brand blue links */
+        text-decoration: none !important;
+        white-space: nowrap !important;
+        margin: 0 !important;
+        padding: 2px !important;
+    }
+
+    /* Small Topics Sidebar button shortcut icon link trigger */
+    .nav-sidebar-trigger-btn {
+      /*  order: 4 !important;*/
+        background: transparent !important;
+        border: none !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        padding: 2px !important;
+        color: #2c537a !important;
+        margin: 0 !important;
+    }
+
+    .nav-trigger-svg-icon {
+        width: 14px !important;
+        height: 14px !important;
+        color: #2c537a !important;
+    }
+
+    /* Hide the wide textual book label to match a clean look and keep the row small */
+    .nav-btn-label {
+        display: none !important;
+    }
+
+    /* ==========================================
+       ROW 2: NARROWER LOW-PROFILE SEARCH FIELD
+       ========================================== */
+    
+    /* Force the search container to sit right below Row 1 with zero wasted width */
+    .search-container {
+        order: 5 !important;
+        width: 96% !important; /* Leaves thin margin space on the outer window walls so it's not too wide */
+        max-width: 100% !important;
+        margin: 2px auto 0 auto !important; /* Balanced micro top gap */
+        padding: 0 !important;
+    }
+
+    .search-form {
+        width: 100% !important;
+        display: flex !important;
+        position: relative !important;
+        align-items: center !important;
+    }
+
+    .search-input {
+        width: 100% !important;
+        height: 26px !important; /* Low-profile ultra-thin input text field tracking height */
+        padding: 0 32px 0 10px !important; 
+        font-size: 12px !important; /* Small textbook print sizing inside input frame */
+        border-radius: 6px !important; /* Sharp modern container style box cuts */
+        background-color: #f1f5f9 !important; /* Your light background grey tint */
+        border: 1px solid #cbd5e1 !important;
+        color: #1e293b !important;
+        outline: none !important;
+    }
+
+    /* Compact integrated search magnifying glass submission button */
+    .search-submit {
+        position: absolute !important;
+        right: 0 !important;
+        top: 0 !important;
+        width: 28px !important; /* Narrow width button space optimization */
+        height: 26px !important;
+        background-color: #2c537a !important; /* Built utilizing your core branding blue */
+        border: none !important;
+        border-radius: 0 5px 5px 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        cursor: pointer !important;
+    }
+
+    .search-icon {
+        width: 11px !important;
+        height: 11px !important;
+        color: #ffffff !important; /* White graphic vector symbol */
+        stroke-width: 2.5 !important;
+    }
+    
+    /* Keep dropdown suggestion overlay bounds completely standard aligned */
+    .search-suggestions-box,
+    .suggestions-dropdown {
+        width: 100% !important;
+        left: 0 !important;
+        top: 100% !important;
+    }
+}
+/* ==========================================================================
+   LOW-OPACITY TRANSPARENT GRAPHIC NAVBAR BACKGROUND ACCENT (.JPG VERSION)
+   ========================================================================== */
+@media (max-width: 768px) {
+
+    /* 1. Ensure the container handles a floating layered backdrop track */
+    header.site-header,
+    .site-header {
+        position: fixed !important;
+        overflow: visible !important;
+        z-index: 10000 !important;
+    }
+
+    /* 2. Layer the image layout backdrop right underneath your header links */
+    header.site-header::before {
+        content: "" !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        
+        /* THE JPG IMAGE CORE CONFIGURATION */
+        background-image: url('study-time.jpg') !important; /* Update to url('images/study-time.jpg') if inside a folder */
+        background-size: cover !important;        
+        background-position: center center !important; 
+        background-repeat: no-repeat !important;
+        
+        /* OPACITY SLIDER CONTROLLER VALUE */
+        opacity: 0.18 !important; /* Balanced 12% opacity keeps text headers highly readable */
+        
+        /* SEPARATION INDEX TRACK LAYER */
+        z-index: -1 !important; 
+        pointer-events: none !important; 
+    }
+
+    /* 3. Ensure your text links remain distinct over the layout asset graphics */
+    .logo-text, .nav-link, .dropdown-trigger, .nav-btn-label {
+        position: relative !important;
+        z-index: 2 !important; 
+        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6) !important; 
+    }
+}
+/* ==========================================================================
+   MOBILE VIEWPORT: RE-ENABLE & SCALE TOPICS LABELS INLINE
+   ========================================================================== */
+@media (max-width: 768px) {
+    
+    /* 1. Force the target trigger button to display its inner contents inline horizontally */
+    header.site-header button.nav-sidebar-trigger-btn#navbarSidebarToggle,
+    button.nav-sidebar-trigger-btn,
+    .nav-sidebar-trigger-btn {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 4px !important;            /* Tight 4px air gap space between icon and word */
+        width: auto !important;         /* Releases strict circular dimension bounding locks */
+        height: auto !important;
+        padding: 2px 4px !important;    /* Tight low-profile vertical and side padding cushions */
+        background: transparent !important;
+        border: none !important;
+        float: none !important;
+        flex-shrink: 0 !important;      /* Stops text from wrapping or breaking onto rows */
+    }
+
+    /* 2. Style your icon graphic vector to stay small and proportionate */
+    button.nav-sidebar-trigger-btn .nav-trigger-svg-icon,
+    .nav-trigger-svg-icon {
+        width: 13px !important;         /* Micro scale down matches text height footprint */
+        height: 13px !important;
+        color: #2c537a !important;      /* Core branding blue palette color */
+        display: inline-block !important;
+        margin: 0 !important;
+    }
+
+    /* 3. RE-OPEN HIDDEN STATE: Forces the textual descriptor word label out of hiding */
+    button.nav-sidebar-trigger-btn .nav-btn-label,
+    #navbarSidebarToggle span.nav-btn-label,
+    .nav-btn-label {
+        display: inline-block !important; /* Force-cancels out any display: none or hidden filters */
+        visibility: visible !important;
+        opacity: 1 !important;
+        width: auto !important;
+        height: auto !important;
+        
+        /* TYPOGRAPHY MATRIX STYLING */
+        font-size: 11px !important;      /* Delicate compact print size choice */
+        font-weight: 700 !important;     /* Bold text weight for clear reading visibility */
+        color: #475569 !important;      /* Your neutral muted theme layout text link tracking color */
+        white-space: nowrap !important;  /* Locks character line breaks strings onto one row */
+    }
+}
+/* Base button styles (Desktop & Tablet) */
+.nav-download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Spacing between icon and text */
+  padding: 8px 16px;
+  background-color: #007bff; /* Example primary color */
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.nav-download-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 480px) {
+  .nav-download-btn {
+    padding: 10px; /* Equal padding for a square icon button */
+    border-radius: 50%; /* Optional: makes the mobile button circular */
+  }
+
+  .nav-download-btn .btn-text {
+    display: none; /* Hides the "Download" text on mobile */
+  }
+}
+/* Styling for Desktop and Tablet */
+.nav-download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Spaces icon and text */
+  padding: 8px 16px;
+  background-color: #f3f4f6; /* Clean background for reading */
+  color: #1f2937; /* Dark text/icon color */
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Hover state for desktop */
+.nav-download-btn:hover {
+  background-color: #e5e7eb;
+}
+
+/* Mobile Responsive Breakpoint */
+@media (max-width: 576px) {
+  .nav-download-btn {
+    padding: 12px; /* Larger hit target for thumbs */
+    border-radius: 8px;
+    background-color: #ffffff; /* Keeps it distinct on mobile */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Hides the "Download" text on mobile */
+  .nav-download-btn .btn-text {
+    display: none; 
+  }
+}
+/* Base settings for the button */
+#gateNextTopicBtn {
+  white-space: nowrap; /* Keeps the phrase on a single line on narrow screens */
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* Hover and active states for desktop users */
+#gateNextTopicBtn:hover {
+  background: #004085 !important; /* Overrides inline style color on hover */
+}
+
+#gateNextTopicBtn:active {
+  transform: scale(0.97); /* Click visual feedback */
+}
+
+/* Mobile responsive view (Screens under 576px wide) */
+@media (max-width: 576px) {
+  #gateNextTopicBtn {
+    padding: 8px 18px !important;    /* Trims padding to make the button physically smaller */
+    font-size: 13px !important;      /* Drops font size down to look balanced */
+    border-radius: 16px !important;  /* Sharpens the pill shape to match the smaller size */
+  }
+
+  .navigation-container {
+    display: flex;
+    justify-content: center; /* Centers the smaller button on phone layouts */
+    width: 100%;
+  }
+}
+/* Mobile responsive adjustments */
+@media (max-width: 576px) {
+  /* Spacing out the core question wrappers */
+  .msq-question {
+    margin-top: 16px !important;
+    margin-bottom: 12px !important;
+    padding-left: 8px;
+    padding-right: 8px;
+    line-height: 1.5; /* Makes reading paragraphs on small screens easier */
+  }
+
+  /* Spacing individual choice options to prevent accidental mis-clicks */
+  .mcq-option {
+    margin-top: 8px !important;
+    margin-bottom: 8px !important;
+    padding: 10px 14px !important; /* Slightly larger clickable pad for thumbs */
+  }
+
+  /* Providing visual separation for your answer explanations */
+  .mcq-answer {
+    margin-top: 12px !important;
+    margin-bottom: 20px !important;
+    padding: 12px !important;
+  }
+}
+/* Your original marker styles */
+li::marker {
+    unicode-bidi: isolate;
+    font-variant-numeric: tabular-nums;
+    text-transform: none;
+    text-indent: 0px !important;
+    text-align: start !important;
+    text-align-last: auto !important;
+}
+
+/* Apply the layout and spacing to the actual element holding the marker */
+li {
+    list-style-position: inside; 
+    margin-left: 15px;  /* Pushes the entire list item right */
+    margin-bottom: 10px; /* Adds space below each list item */
 }
