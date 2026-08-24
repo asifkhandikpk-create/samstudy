@@ -1,0 +1,7 @@
+[[plugins]]
+package = "netlify-plugin-submit-sitemap"
+
+  [plugins.inputs]
+  baseUrl = "https://yourwebsite.com"
+  sitemapPath = "/sitemap.xml"
+  providers = ["google"]
