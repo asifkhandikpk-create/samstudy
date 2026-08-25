@@ -2882,3 +2882,59 @@ li {
     margin-left: 15px;  /* Pushes the entire list item right */
     margin-bottom: 10px; /* Adds space below each list item */
 }
+/* Container for the dropdown alignment */
+.dropdown-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Style for the main navbar trigger heading */
+.dropdown-trigger {
+    cursor: pointer;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+}
+
+.dropdown-trigger .arrow {
+    font-size: 0.8rem;
+    margin-left: 2px;
+}
+
+/* The actual menu list card box (Hidden by default) */
+.dropdown-menu {
+    display: none; 
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    min-width: 260px; /* Gives perfect width space for your article title */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.12);
+    padding: 8px 0;
+    margin: 0;
+    list-style: none;
+    border-radius: 4px;
+    z-index: 9999; /* Ensures it floats directly over all background images or text */
+}
+
+/* Individual links inside the dropdown card */
+.dropdown-menu li a {
+    color: #202122;
+    padding: 12px 18px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.95rem;
+    text-align: left;
+    transition: background-color 0.2s ease;
+}
+
+/* Hover style color when browsing your menu selection */
+.dropdown-menu li a:hover {
+    background-color: #ebf8ff;
+    color: #3182ce;
+}
+
+/* THE TRIGGER MECHANISM: Shows the card when hovering over the main list item */
+.dropdown-container:hover .dropdown-menu {
+    display: block;
+}

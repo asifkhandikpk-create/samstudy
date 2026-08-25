@@ -1,0 +1,311 @@
+/* Universal Resets and Academic Base Colors */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    color: #202122;
+}
+
+/* HERO SECTION WITH IMAGE BACKGROUND */
+.hero-section {
+    background-image: url('https://unsplash.com'); /* Standard placeholder image link */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    width: 100%;
+}
+
+.hero-overlay {
+    background: linear-gradient(to bottom, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95));
+    padding: 80px 20px;
+}
+
+.hero-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    color: #ffffff;
+}
+
+.hero-badge {
+    background-color: #3182ce;
+    color: white;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 4px;
+    letter-spacing: 1px;
+}
+
+.hero-section h1 {
+    font-family: 'Georgia', serif;
+    font-size: 2.8rem;
+    color: #ffffff;
+    margin: 15px 0 10px 0;
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    color: #cbd5e0;
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+.article-meta {
+    font-size: 0.85rem;
+    color: #a0aec0;
+}
+
+/* TWO COLUMN WIKIPEDIA CONTENT LAYOUT */
+.wiki-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 50px 20px;
+    gap: 50px;
+}
+
+/* LEFT STICKY SIDEBAR */
+.wiki-sidebar {
+    border-right: 1px solid #e2e8f0;
+    padding-right: 20px;
+}
+
+.sidebar-sticky {
+    position: sticky;
+    top: 30px;
+}
+
+.wiki-sidebar h3 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #718096;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+}
+
+.toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.toc-list li {
+    margin-bottom: 12px;
+}
+
+.toc-link {
+    font-size: 0.9rem;
+    color: #3182ce;
+    text-decoration: none;
+    display: block;
+}
+
+.toc-link:hover {
+    text-decoration: underline;
+}
+
+.toc-link.active {
+    font-weight: bold;
+    color: #1a202c;
+    border-left: 3px solid #3182ce;
+    padding-left: 8px;
+}
+
+/* RIGHT MAIN ACADEMIC WRITING TEXT BOX */
+.wiki-content {
+    max-width: 750px;
+}
+
+.lead-paragraph {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: #4a5568;
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-family: 'Georgia', serif;
+    font-size: 1.6rem;
+    font-weight: normal;
+    color: #1a202c;
+    border-bottom: 1px solid #cbd5e0;
+    padding-bottom: 5px;
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    margin-bottom: 20px;
+    color: #2d3748;
+    text-align: justify;
+}
+
+ul, ol {
+    margin-bottom: 25px;
+    padding-left: 20px;
+}
+
+li {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: #2d3748;
+}
+
+/* POLICY INNOVATION BOXES */
+.policy-box {
+    background-color: #f7fafc;
+    border-left: 4px solid #2b6cb0;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 0 4px 4px 0;
+}
+
+.policy-box h4 {
+    margin: 0 0 8px 0;
+    color: #2b6cb0;
+    font-size: 1.1rem;
+}
+
+.policy-box p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* WIKIPEDIA STYLE HYPERLINKS COLORING RULES */
+.wiki-content a {
+    color: #0b00b3; /* Wikipedia deep academic blue */
+    text-decoration: none;
+}
+
+.wiki-content a:hover {
+    text-decoration: underline;
+}
+
+/* RESPONSIVE LAYOUT FOR PHONES */
+@media (max-width: 768px) {
+    .wiki-layout {
+        grid-template-columns: 1fr;
+    }
+    .wiki-sidebar {
+        display: none;
+    }
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+}
+/* Wikipedia-Style References Styling */
+.wiki-references-list {
+    margin-top: 20px;
+    padding-left: 25px;
+    font-size: 0.85rem; /* Wikipedia references are always smaller than regular text */
+    color: #404244;
+}
+
+.wiki-references-list li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+    word-break: break-all; /* Prevents long URLs from breaking your mobile screen layout */
+}
+
+/* The little "^" arrow symbol Wikipedia uses to point back up */
+.backlink {
+    color: #3366cc;
+    font-weight: bold;
+    margin-right: 5px;
+    cursor: default;
+    user-select: none;
+}
+
+/* Ensure links inside citations look clean and professional */
+.wiki-references-list a {
+    color: #3366cc;
+    text-decoration: none;
+}
+
+.wiki-references-list a:hover {
+    text-decoration: underline;
+}
+/* Wikipedia Bracket Citation Style */
+.reference {
+    font-size: 0.8rem;
+    font-weight: normal;
+    padding-left: 2px;
+    vertical-align: super; /* Shifts the [1] upward */
+    user-select: none;
+}
+
+.reference a {
+    color: #3182ce !important;
+    text-decoration: none !important;
+}
+
+.reference a:hover {
+    text-decoration: underline !important;
+}
+
+/* Make the ^ symbol at the bottom clickable back to the text paragraph */
+.backlink a {
+    color: #3182ce;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 5px;
+}
+/* Wikipedia Thumbnails Structural Frame Styling */
+.wiki-thumb {
+  display: block;
+  margin-bottom: 1.2em;
+  background-color: #f8f9fa;
+  border: 1px solid #c8ccd1;
+  padding: 3px;
+  max-width: 220px; /* Precise side-panel execution width */
+}
+
+/* Side Placement Float Commands */
+.tright {
+  float: right;
+  clear: right;
+  margin-left: 1.4em;
+}
+
+.tleft {
+  float: left;
+  clear: left;
+  margin-right: 1.4em;
+}
+
+/* Thumbnail Content Adjustments */
+.thumb-inner {
+  text-align: left;
+  font-size: 0.82rem;
+}
+
+.wiki-thumb img {
+  width: 100%;
+  height: auto;
+  border: 1px solid #c8ccd1;
+  display: block;
+}
+
+/* Informational Captions */
+.thumb-caption {
+  padding: 6px 4px 2px 4px;
+  line-height: 1.4;
+  color: #202122;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Mobile Alignment Fix */
+@media (max-width: 768px) {
+  .wiki-thumb.tright, .wiki-thumb.tleft {
+    float: none;
+    margin: 1.5em auto;
+    max-width: 100%;
+  }
+}
