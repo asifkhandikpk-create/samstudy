@@ -1,0 +1,258 @@
+/* Base Workspace Resets */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f8fafc;
+    font-family: system-ui, -apple-system, sans-serif;
+    padding-top: 60px;
+    /* Crucial padding buffer room under top fixed bar */
+}
+
+/* ==========================================================================
+   FIXED PLATFORM NAVIGATION BAR COMPONENTS
+   ========================================================================== */
+.nav-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0 20px;
+    z-index: 1000;
+}
+
+.nav-logo a {
+    font-weight: 700;
+    color: #1e3a8a;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.search-wrapper {
+    width: 35%;
+}
+
+#navbarSearchInput {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+#navbarSearchInput:focus {
+    border-color: #2c537a;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-link-btn:hover {
+    background: #475569;
+}
+
+.nav-download-btn {
+    background: #2c537a;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.2s;
+}
+
+.nav-download-btn:hover {
+    background: #1d4ed8;
+}
+
+/* ==========================================================================
+   YOUR PERFECT PRESERVED GEORGIA LITERARY CARD VIEWPORT
+   ========================================================================== */
+.reading-viewport-area {
+    width: 100%;
+    padding: 30px 20px;
+    box-sizing: border-box;
+}
+
+.document-header-meta {
+    max-width: 820px;
+    margin: 0 auto 15px auto;
+    display: none;
+    /* Keep layout clean since Title renders inside page Sheet 1 */
+}
+
+/* Single Page Card Frame Layout block layout structure blueprint */
+.scribd-page-sheet {
+    background: #ffffff;
+    max-width: 820px;
+    margin: 0 auto 24px auto;
+    /* Spatial uniform margin space between pages */
+    padding: 50px 60px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+    border: 1px solid #eef0f2;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Card Subheading Blocks rendering logic formatting style mapping */
+.scribd-page-sheet h3 {
+    font-size: 20px;
+    color: #2c537a;
+    margin-bottom: 12px;
+    margin-top: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-weight: 700;
+}
+
+.scribd-page-sheet p,
+.scribd-page-sheet li {
+    font-size: 16px;
+    line-height: 1.65;
+    color: #2c537a;
+    font-family: "Georgia", Times, serif;
+    /* Clean literary typography accent */
+}
+
+.scribd-page-sheet ul {
+    padding-left: 24px;
+    margin-top: 8px;
+}
+
+.scribd-page-sheet li {
+    margin-bottom: 12px;
+}
+
+/* Isolated Structural Master Header Block Component Styles */
+.sam-rm-master-wrapper {
+    --rm-navy: #1e3a8a;
+    --rm-blue-glow: #2563eb;
+    --rm-slate-ink: #0f172a;
+    --rm-slate-muted: #64748b;
+    --rm-ash-border: #e2e8f0;
+    --rm-canvas-soft: #f8fafc;
+    width: 100%;
+    max-width: 100%;
+    background: #ffffff;
+    border-top: 1px solid var(--rm-ash-border);
+    border-bottom: 1px solid var(--rm-ash-border);
+    padding: 40px 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, sans-serif;
+    margin-bottom: 35px;
+    /* Leaves clear breathing space before sheets render */
+}
+
+.sam-rm-content {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 60px;
+    box-sizing: border-box;
+}
+
+.sam-rm-title {
+    color: var(--rm-slate-ink);
+    font-size: 28px;
+    margin: 0 0 8px 0;
+}
+
+.sam-rm-meta {
+    color: var(--rm-slate-muted);
+    font-size: 14px;
+}
+
+/* ========================================================================== 
+   PERFECT RESPONSIVE MOBILE VIEWPORT OVERRIDES 
+   ========================================================================== */
+@media (max-width: 768px) {
+    body {
+        padding-top: 60px;
+    }
+
+    .nav-container {
+        padding: 0 10px;
+    }
+
+    .search-wrapper {
+        width: 45%;
+    }
+
+    .nav-download-btn {
+        padding: 8px;
+        border-radius: 50%;
+        /* Trims button into a circular action bubble */
+    }
+
+    .nav-download-btn .btn-text {
+        display: none;
+        /* Hide wide text payload to maximize workspace real estate */
+    }
+
+    .reading-viewport-area {
+        padding: 0px;
+    }
+
+    /* Force page sheet container items to drop borders and look clean inline */
+    .scribd-page-sheet {
+        margin: 0 0 12px 0;
+        /* Space out rows cleanly via vertical bottom layouts */
+        padding: 24px 16px;
+        box-shadow: none;
+        border-left: none;
+        border-right: none;
+        border-radius: 0;
+        max-width: 100%;
+    }
+
+    .sam-rm-content {
+        padding: 0 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-logo {
+        font-size: 15px;
+    }
+
+    .search-wrapper {
+        width: 40%;
+    }
+
+    #navbarSearchInput {
+        padding: 6px 8px;
+        font-size: 13px;
+    }
+}
+
+/* Base styles for desktop/larger screens */
+.nav-download-btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Mobile responsive styles (screens smaller than 480px) */
+@media (max-width: 480px) {
+    .nav-download-btn {
+        padding: 8px 14px;
+        /* Reduces padding to shrink the button size */
+        font-size: 14px;
+        /* Decreases font size for better mobile fit */
+    }
+}

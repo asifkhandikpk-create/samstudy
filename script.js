@@ -4,14 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Verification check: ensure both elements physically exist on current page loading instance
     if (exploreBtn && exploreDropdown) {
-        
+
         // Listen for a direct user click event trigger
         exploreBtn.addEventListener('click', (event) => {
             event.stopPropagation(); // Stops click event bubble from closing menu immediately
-            
+
             // Toggle the visibility state class inside classList array sequence
             exploreDropdown.classList.toggle('show');
-            
+
             // Manage accessibility attributes dynamically
             const isMenuOpen = exploreDropdown.classList.contains('show');
             exploreBtn.setAttribute('aria-expanded', isMenuOpen);
@@ -32,11 +32,11 @@ const suggestionsBox = document.getElementById('searchSuggestionsBox');
 const searchForm = document.getElementById('navbarSearchForm');
 
 if (searchInput && suggestionsBox) {
-    
+
     // 1. LISTEN FOR REAL-TIME INPUT EVENTS AS THE USER TYPES
     searchInput.addEventListener('input', () => {
         const queryText = searchInput.value.toLowerCase().trim();
-        
+
         // Hide box instantly if query value field text remains empty or small
         if (queryText.length < 1) {
             suggestionsBox.classList.remove('active');
@@ -50,7 +50,7 @@ if (searchInput && suggestionsBox) {
         // 2. SCAN THE GLOBAL CONTENT MODULE OBJECT (polSciDatabase from data.js)
         for (const topicKey in polSciDatabase) {
             const topic = polSciDatabase[topicKey];
-            
+
             // Check if title or document keywords match query input values text
             if (topic.title.toLowerCase().includes(queryText)) {
                 matchingResultsFound = true;
@@ -58,7 +58,7 @@ if (searchInput && suggestionsBox) {
                 // Create clickable dynamic layout link element block
                 const itemNode = document.createElement('div');
                 itemNode.classList.add('suggestion-item');
-                
+
                 itemNode.innerHTML = `
                     <span class="suggestion-title">${topic.title}</span>
                     <span class="suggestion-type">${topic.documentType || 'Study Notes'}</span>
@@ -97,8 +97,8 @@ if (searchInput && suggestionsBox) {
 }
 
 
- 
-    // 🛠️ SAFE LEGAL BUTTON ENGINE
+
+// 🛠️ SAFE LEGAL BUTTON ENGINE
 const termsBtn = document.getElementById("termsBtn");
 const closeLegalBtn = document.getElementById("closeLegalBtn");
 
@@ -108,7 +108,7 @@ const legalTitle = document.getElementById("legalTitle");
 const legalContent = document.getElementById("legalContent");
 
 if (termsBtn) {
-    termsBtn.addEventListener("click", function() {
+    termsBtn.addEventListener("click", function () {
         // Only run if the HTML element actually exists on the current page
         if (typeof legalOverlay !== 'undefined' && legalOverlay) {
             legalOverlay.style.display = "flex";
@@ -123,7 +123,7 @@ if (termsBtn) {
 }
 
 if (closeLegalBtn) {
-    closeLegalBtn.addEventListener("click", function() {
+    closeLegalBtn.addEventListener("click", function () {
         if (typeof legalOverlay !== 'undefined' && legalOverlay) {
             legalOverlay.style.display = "none";
         }
@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const dimOverlay = document.getElementById('sidebarOverlay');
 
     if (triggerBtn && sidebarMenu && dimOverlay) {
-        
+
         // Open Sidebar Layout Event Function
         function openSidebar() {
             sidebarMenu.classList.remove('collapsed');
@@ -237,12 +237,12 @@ function getNewRandomQuestion() {
 
     const randomIndex = Math.floor(Math.random() * quizData.length);
     currentActiveQuestion = quizData[randomIndex];
-    
+
     document.getElementById('trivia-question').innerText = currentActiveQuestion.question;
-    
+
     const optionsContainer = document.getElementById('trivia-options');
     optionsContainer.innerHTML = '';
-    
+
     document.getElementById('trivia-explanation').className = "appendix-box hidden";
     document.getElementById('next-btn').classList.add('hidden');
 
@@ -264,7 +264,7 @@ function evaluateChoice(selectedButton, isCorrect, descriptionText) {
     const statusHeader = document.getElementById('result-status');
     const descParagraph = document.getElementById('explanation-text');
     const iconSpan = document.getElementById('feedback-icon');
-    
+
     buttons.forEach(btn => {
         btn.disabled = true;
         if (btn.innerText === currentActiveQuestion.options.find(o => o.isCorrect).text) {
@@ -274,7 +274,7 @@ function evaluateChoice(selectedButton, isCorrect, descriptionText) {
 
     feedbackBox.classList.remove('hidden');
     descParagraph.innerText = descriptionText;
-    
+
     if (isCorrect) {
         selectedButton.classList.add('correct');
         statusHeader.innerText = "PASSED: Verified Fact";
@@ -296,4 +296,105 @@ function loadNextQuestion() {
     getNewRandomQuestion();
 }
 
-document.addEventListener("DOMContentLoaded", initQuiz);
+document.addEventListener('DOMContentLoaded', () => {
+    const mobileNavToggle = document.getElementById('mobileNavToggle');
+    const navResponsiveWrapper = document.getElementById('navResponsiveWrapper');
+
+    mobileNavToggle.addEventListener('click', () => {
+        // Toggle active layout states
+        mobileNavToggle.classList.toggle('open');
+        navResponsiveWrapper.classList.toggle('active');
+
+        // Update ARIA rules for accessibility
+        const isOpen = mobileNavToggle.classList.contains('open');
+        mobileNavToggle.setAttribute('aria-expanded', isOpen);
+    });
+});
+document.addEventListener('DOMContentLoaded', () => {
+    // Function to setup dropdown toggle logic
+    function setupDropdown(buttonId, menuId) {
+        const button = document.getElementById(buttonId);
+        const menu = document.getElementById(menuId);
+
+        if (!button || !menu) return;
+
+        button.addEventListener('click', (event) => {
+            event.stopPropagation(); // Prevents immediate closing from document click
+
+            const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+            // Close all active dropdowns first
+            closeAllDropdowns();
+
+            if (!isExpanded) {
+                button.setAttribute('aria-expanded', 'true');
+                menu.classList.add('show'); // Make sure your CSS targets .dropdown-menu.show to display it
+            }
+        });
+    }
+
+    function closeAllDropdowns() {
+        document.querySelectorAll('.dropdown-trigger').forEach(btn => {
+            btn.setAttribute('aria-expanded', 'false');
+        });
+        document.querySelectorAll('.dropdown-menu').forEach(menu => {
+            menu.classList.remove('show');
+        });
+    }
+
+    // Initialize both dropdown containers
+    setupDropdown('exploreBtn', 'exploreDropdown');
+    setupDropdown('articlesBtn', 'articlesDropdown');
+
+    // Close menus when clicking anywhere outside the navbar dropdown area
+    document.addEventListener('click', () => {
+        closeAllDropdowns();
+    });
+});
+document.addEventListener('DOMContentLoaded', () => {
+    // Select all dropdown wrapper components
+    const dropdowns = document.querySelectorAll('.dropdown-wrapper');
+
+    dropdowns.forEach(dropdown => {
+        const trigger = dropdown.querySelector('.dropdown-trigger');
+        const menu = dropdown.querySelector('.dropdown-menu');
+
+        if (!trigger || !menu) return;
+
+        // Direct toggle on click handler
+        trigger.addEventListener('click', (event) => {
+            event.stopPropagation(); // Prevents closing immediately when clicking the button itself
+
+            const isCurrentlyOpen = menu.style.display === 'block';
+
+            // 1. Close all dropdowns first so only one stays open at a time
+            closeAllMenus();
+
+            // 2. If it wasn't open, open it now
+            if (!isCurrentlyOpen) {
+                menu.style.display = 'block';
+                menu.style.opacity = '1';
+                menu.style.visibility = 'visible';
+                trigger.setAttribute('aria-expanded', 'true');
+            }
+        });
+    });
+
+    // Global close helper function
+    function closeAllMenus() {
+        document.querySelectorAll('.dropdown-menu').forEach(menu => {
+            menu.style.display = 'none';
+            menu.style.opacity = '0';
+            menu.style.visibility = 'hidden';
+        });
+        document.querySelectorAll('.dropdown-trigger').forEach(trigger => {
+            trigger.setAttribute('aria-expanded', 'false');
+        });
+    }
+
+    // Close menus instantly if user clicks anywhere outside the navigation block
+    document.addEventListener('click', () => {
+        closeAllMenus();
+    });
+});
+

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://sitemaps.org">
+
+  <!-- Main Homepage -->
+  <url>
+    <loc>https://netlify.app</loc>
+  </url>
+
+  <!-- Notes & Reading Pages -->
+  <url>
+    <loc>https://netlify.appreading.html</loc>
+  </url>
+   <url>
+    <loc>https://netlify.appreading.html?topic=intro-to-polsci</loc>
+  </url>
+   <url>
+    <loc>https://netlify.appreading.html?topic=what-is-political-science</loc>
+  </url>
+<url>
+    <loc>https://netlify.appreading.html?topic=scope-of-political-science</loc>
+  </url>
+  <url>
+    <loc>https://netlify.appreading.html?topic=sub-divisions-of-polsci</loc>
+  </url>
+  <url>
+    <loc>https://netlify.appreading.html?topic=public-administration</loc>
+  </url>
+  <url>
+    <loc>https://netlify.appreading.html?topic=scope-of-public-administration</loc>
+  </url>
+  <url>
+    <loc>https://netlify.appreading.html?topic=scope-of-public-administration</loc>
+  </url>
+  <url>
+    <loc>https://netlify.appfrom-dependency-to-development.html</loc>
+  </url>
+
+  <!-- Feedback Page -->
+  <url>
+    <loc>https://netlify.appfeedback.html</loc>
+  </url>
+
+  <!-- Legal Pages -->
+  <url>
+    <loc>https://netlify.appprivacy-policy.html</loc>
+  </url>
+  <url>
+    <loc>https://netlify.appterms.html</loc>
+  </url>
+<url>
+<loc>https://netlify.appstate-notes.html</loc>
+</url>
+</urlset>

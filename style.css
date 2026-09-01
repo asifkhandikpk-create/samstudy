@@ -7,8 +7,8 @@
     --text-muted: #4b5563;
     --bg-light: #ffffff;
     --border-color: #e5e7eb;
-    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
-    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     --transition-smooth: all 0.2s ease-in-out;
 }
 
@@ -26,7 +26,8 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    margin: 0; /* Ensures no default browser gaps */
+    margin: 0;
+    /* Ensures no default browser gaps */
 }
 
 
@@ -110,7 +111,8 @@ body {
     top: 100%;
     left: 0;
 }
-    /* Dropdown Context Container */
+
+/* Dropdown Context Container */
 .dropdown-wrapper {
     position: relative;
     display: inline-block;
@@ -130,6 +132,7 @@ body {
     border-radius: 20px;
     transition: all 0.2s ease;
 }
+
 .dropdown-trigger:hover {
     background-color: #e5e7eb;
 }
@@ -148,15 +151,18 @@ body {
     background-color: var(--bg-light);
     border: 1px solid var(--border-color);
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     width: 260px;
-    list-style: none;    padding: 8px 0;
-    display: none; /* Crucial: Kept hidden by default */
+    list-style: none;
+    padding: 8px 0;
+    display: none;
+    /* Crucial: Kept hidden by default */
 }
 
 /* Target State Class - Activated via JavaScript Click Event */
 .dropdown-menu.show {
-    display: block; /* Changes to visible element */
+    display: block;
+    /* Changes to visible element */
 }
 
 .dropdown-header {
@@ -167,6 +173,7 @@ body {
     color: var(--text-muted);
     letter-spacing: 0.5px;
 }
+
 .dropdown-menu li a {
     display: block;
     padding: 10px 16px;
@@ -281,7 +288,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    
+
 }
 
 .hero-content h1 {
@@ -305,13 +312,176 @@ body {
     border-radius: 30px;
 }
 
-   /* ========================================== */
-/* SAMSTUDY FOOTER & LEGAL SYSTEM STYLING    */
+.hero-bg-overlay-view {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    /* Direct asset reference pointer matching your local file name */
+    background-image: url('book.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* Low opacity setting to maintain strong contrast and readability for text on top */
+    opacity: 0.15;
+
+    /* Forces the background layer to stay behind all layout items */
+    z-index: 1;
+}
+
+/* Core Hero Layout & Gradient Background */
+.hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 80vh;
+    /* Ensures a spacious, premium look */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+    box-sizing: border-box;
+
+    /* The Gradient: Starts with #3368A0 at the top, blends to pure white at the bottom */
+    background: linear-gradient(to bottom, #3368A0 0%, #3368A0 50%, #ffffff 100%);
+}
+
+/* Ensure backdrop image doesn't block the color */
+.hero-backdrop-image-view {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.15;
+    /* Keeps image subtle so the blue gradient shines through */
+    mix-blend-mode: overlay;
+    pointer-events: none;
+}
+
+/* Text Container Styling */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+/* Main Heading (Stays at the very top dark blue area) */
+.hero-content h1 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    color: #ffffff;
+    /* Crisp white for maximum contrast against the blue */
+    margin-bottom: 16px;
+}
+
+/* Paragraph Text (Sits slightly lower where the blue starts softening) */
+.hero-content p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    color: #e8f0fe;
+    /* Soft off-white so it doesn't fight the header for attention */
+    margin-bottom: 32px;
+}
+
+/* Call To Action Button */
+.btn-primary {
+    background-color: #0071e3;
+    /* Apple-style striking action blue */
+    color: #ffffff;
+    padding: 12px 24px;
+    font-size: 17px;
+    font-weight: 500;
+    border: none;
+    border-radius: 980px;
+    /* Fully rounded premium pill capsule */
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0077ed;
+    transform: scale(1.02);
+    /* Subtle scale effect when hovered */
+}
+
+
+/* 📱 Perfect Middle-Ground Mobile View (Devices under 768px wide) */
+@media (max-width: 767px) {
+
+    .hero-section {
+        /* Fixed minimum height gives it structure without being oversized */
+        min-height: 340px;
+
+        /* Slightly increased padding to give the text room to breathe */
+        padding: 65px 20px 55px 20px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        /* Smooth gradient adjustment scaled perfectly to this height */
+        background: linear-gradient(to bottom, #3368A0 0%, #3368A0 55%, #ffffff 100%);
+    }
+
+    .hero-content h1 {
+        font-size: 34px;
+        /* Slightly bolder presence for the mobile title */
+        line-height: 1.15;
+        margin-bottom: 12px;
+    }
+
+    .hero-content p {
+        font-size: 16.5px;
+        /* Clean, clear text size for mobile reading */
+        line-height: 1.45;
+        margin-bottom: 26px;
+        padding: 0 10px;
+    }
+
+    .btn-large {
+        padding: 12px 24px;
+        /* Returns to a comfortable button tap-target size */
+        font-size: 16px;
+    }
+}
+
+
+/* 1. Remove any bottom margin or padding gaps from the navbar container */
+.nav-container {
+    margin-bottom: 0 !important;
+}
+
+/* 2. Zero out top margins on the hero section to push it up flush */
+.hero-section {
+    margin-top: 0 !important;
+    padding-top: 60px !important;
+    /* Keeps space inside the blue area, not above it */
+}
+
+/* 3. Prevent inner text margins from accidentally pushing the container down */
+.hero-content h1,
+.hero-content {
+    margin-top: 0 !important;
+}
+
+
+/* ========================================== */
+/* zabalix FOOTER & LEGAL SYSTEM STYLING    */
 /* ========================================== */
 
 .site-footer {
-    background-color:  #0a192f;
-    border-top: 1px solid  #0a192f;
+    background-color: #0a192f;
+    border-top: 1px solid #0a192f;
     padding: 24px 0;
     width: 100%;
     margin-top: 40px;
@@ -344,7 +514,7 @@ body {
     background: none;
     border: none;
     font-size: 14px;
-    color:white;
+    color: white;
     cursor: pointer;
     font-weight: 500;
     padding: 4px 8px;
@@ -352,7 +522,7 @@ body {
 }
 
 .footer-btn:hover {
-    color: #94abcc; 
+    color: #94abcc;
     text-decoration: underline;
 }
 
@@ -368,7 +538,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(15, 23, 42, 0.4); /* Smooth shaded gray sheet backdrop */
+    background-color: rgba(15, 23, 42, 0.4);
+    /* Smooth shaded gray sheet backdrop */
     z-index: 3000;
     display: flex;
     justify-content: center;
@@ -443,6 +614,7 @@ body {
 .legal-scroll-box li {
     margin-bottom: 6px;
 }
+
 /* ========================================== */
 /* SLIDESHARE DISPLAY PRESENTATION SYSTEM     */
 /* ========================================== */
@@ -472,14 +644,15 @@ body {
 /* Slide Screen Wrapper Framework */
 .slide-canvas {
     position: relative;
-    background-color: #0a192f; /* Premium dark background for deep reading contrast */
+    background-color: #0a192f;
+    /* Premium dark background for deep reading contrast */
     border-radius: 12px;
     padding: 40px;
     min-height: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
 }
 
 /* The Crisp White Slide Board Box Layer */
@@ -493,7 +666,7 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     text-align: left;
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
 .slide-badge {
@@ -547,7 +720,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.2s ease;
     z-index: 10;
 }
@@ -557,8 +730,13 @@ body {
     transform: translateY(-50%) scale(1.1);
 }
 
-.prev-arrow { left: -24px; }
-.next-arrow { right: -24px; }
+.prev-arrow {
+    left: -24px;
+}
+
+.next-arrow {
+    right: -24px;
+}
 
 /* Slide Navigation Tracking Indicators Dots row layout */
 .progress-indicator-bar {
@@ -578,15 +756,18 @@ body {
 }
 
 .dot.active {
-    background-color:  #2c537a;
-    width: 24px; /* Professional stretched pill indicator styling */
+    background-color: #2c537a;
+    width: 24px;
+    /* Professional stretched pill indicator styling */
     border-radius: 5px;
 }
+
 /* ========================================== */
 /* MAGNIFYING GLASS LIVE SEARCH ENGINE BOX    */
 /* ========================================== */
 .search-container {
-    position: relative; /* Keeps suggestions relative to the form field container boundaries */
+    position: relative;
+    /* Keeps suggestions relative to the form field container boundaries */
 }
 
 .search-suggestions-box {
@@ -601,7 +782,8 @@ body {
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     max-height: 250px;
     overflow-y: auto;
-    display: none; /* Controlled dynamically via JavaScript array mapping states */
+    display: none;
+    /* Controlled dynamically via JavaScript array mapping states */
     z-index: 2500;
 }
 
@@ -627,7 +809,8 @@ body {
 }
 
 .suggestion-item:hover {
-    background-color: #eff6ff; /* Matches the institutional light blue accent background */
+    background-color: #eff6ff;
+    /* Matches the institutional light blue accent background */
 }
 
 .suggestion-title {
@@ -643,7 +826,8 @@ body {
 }
 
 /* Target the buttons explicitly by their exact IDs */
-#prevPageBtn, #nextPageBtn {
+#prevPageBtn,
+#nextPageBtn {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
@@ -653,9 +837,11 @@ body {
     border-radius: 5px;
 }
 
-#prevPageBtn:hover, #nextPageBtn:hover {
+#prevPageBtn:hover,
+#nextPageBtn:hover {
     background-color: #34495e;
 }
+
 /* Sticky Top Header Container Alignment */
 .top-navbar {
     position: fixed;
@@ -665,7 +851,8 @@ body {
     background-color: #ffffff;
     border-bottom: 1px solid #e2e8f0;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    z-index: 2000; /* Layers safely over the thumbnail sidebar */
+    z-index: 2000;
+    /* Layers safely over the thumbnail sidebar */
     padding: 12px 0;
     display: flex;
     justify-content: center;
@@ -696,7 +883,8 @@ body {
 /* Scribd-Styled Search Input Styling */
 .search-input {
     width: 100%;
-    padding: 12px 16px 12px 44px; /* Generous left padding gives space for search glass */
+    padding: 12px 16px 12px 44px;
+    /* Generous left padding gives space for search glass */
     font-size: 15px;
     color: #1e293b;
     background-color: #f8fafc;
@@ -747,8 +935,10 @@ body {
 
 /* Global Body Top Clearance Margin Adjustment */
 body {
-    padding-top: 85px; /* Safely pushes document title down below the navbar header overlay */
+    padding-top: 85px;
+    /* Safely pushes document title down below the navbar header overlay */
 }
+
 /* Update the search wrapper layout to display elements inline */
 .search-wrapper {
     position: relative;
@@ -756,11 +946,13 @@ body {
     max-width: 800px;
     display: flex;
     align-items: center;
-    gap: 15px; /* Creates spacing between the search bar and button */
+    gap: 15px;
+    /* Creates spacing between the search bar and button */
 }
 
 .search-field-container {
-    flex-grow: 1; /* Allows search box to fill maximum available workspace safely */
+    flex-grow: 1;
+    /* Allows search box to fill maximum available workspace safely */
 }
 
 /* Beautiful Download Button Styling */
@@ -769,7 +961,8 @@ body {
     align-items: center;
     gap: 8px;
     padding: 10px 18px;
-    background-color:#2c537a; /* Premium Scribd Green thematic asset */
+    background-color: #2c537a;
+    /* Premium Scribd Green thematic asset */
     color: #ffffff;
     font-size: 14px;
     font-weight: bold;
@@ -778,11 +971,11 @@ body {
     cursor: pointer;
     white-space: nowrap;
     transition: all 0.2s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .download-nav-btn:hover {
-    background-color:#2c537a;
+    background-color: #2c537a;
     transform: translateY(-1px);
 }
 
@@ -798,14 +991,22 @@ body {
         padding-top: 0 !important;
         background-color: #ffffff !important;
     }
-    .top-navbar, #thumbnails, #navigationControls, .download-nav-btn {
-        display: none !important; /* Hide interface features in export document sheets */
+
+    .top-navbar,
+    #thumbnails,
+    #navigationControls,
+    .download-nav-btn {
+        display: none !important;
+        /* Hide interface features in export document sheets */
     }
+
     .content-wrapper {
-        margin-left: 0 !important; /* Forces document container to occupy full page space width */
+        margin-left: 0 !important;
+        /* Forces document container to occupy full page space width */
         padding: 0 !important;
     }
 }
+
 /* Course Cards Section */
 .courses {
     padding: 60px 10%;
@@ -830,24 +1031,25 @@ body {
     border-radius: 8px;
     width: 30%;
     min-width: 250px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: left;
 }
 
 .card h3 {
     margin-bottom: 15px;
-    color:  #2c537a;;
+    color: #2c537a;
+    ;
 }
 
 .card p {
-    color:  #2c537a;
+    color: #2c537a;
     margin-bottom: 20px;
     font-size: 15px;
     line-height: 1.5;
 }
 
 .card a {
-    color:  #2c537a;
+    color: #2c537a;
     text-decoration: none;
     font-weight: bold;
 }
@@ -855,6 +1057,7 @@ body {
 .card a:hover {
     text-decoration: underline;
 }
+
 /* ======================================================== */
 /* NAVBAR SIDEBAR LAYOUT OVERLAY DEFINITIONS                */
 /* ======================================================== */
@@ -863,7 +1066,8 @@ body {
 .nav-sidebar-trigger-btn {
     background: none;
     border: none;
-    color: inherit; /* Inherits your navbar link colors automatically */
+    color: inherit;
+    /* Inherits your navbar link colors automatically */
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -876,7 +1080,8 @@ body {
 }
 
 .nav-sidebar-trigger-btn:hover {
-    background: rgba(0, 0, 0, 0.05); /* Slight tint block on hover */
+    background: rgba(0, 0, 0, 0.05);
+    /* Slight tint block on hover */
 }
 
 .nav-trigger-svg-icon {
@@ -889,18 +1094,21 @@ body {
     position: fixed;
     top: 0;
     right: 0;
-    width: min(350px, 100vw); /* Keeps layout completely mobile responsive */
+    width: min(350px, 100vw);
+    /* Keeps layout completely mobile responsive */
     height: 100vh;
     background: #ffffff;
     box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
-    z-index: 9999; /* Forces side pane to sit above page contents completely */
+    z-index: 9999;
+    /* Forces side pane to sit above page contents completely */
     transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     box-sizing: border-box;
 }
 
 /* Sliding Toggle Modifiers */
 .nav-sliding-sidebar.collapsed {
-    transform: translateX(100%); /* Displaces off screen to the right */
+    transform: translateX(100%);
+    /* Displaces off screen to the right */
 }
 
 .nav-sidebar-inner {
@@ -988,10 +1196,25 @@ body {
 }
 
 /* Aesthetic Content Palette Categories Mapping */
-.sys-theme { background: #e0f2fe; color: #0369a1; }
-.global-theme { background: #dcfce7; color: #15803d; }
-.theory-theme { background: #f3e8ff; color: #6b21a8; }
-.policy-theme { background: #fef3c7; color: #b45309; }
+.sys-theme {
+    background: #e0f2fe;
+    color: #0369a1;
+}
+
+.global-theme {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.theory-theme {
+    background: #f3e8ff;
+    color: #6b21a8;
+}
+
+.policy-theme {
+    background: #fef3c7;
+    color: #b45309;
+}
 
 .card-body-text h4 {
     margin: 0 0 4px 0;
@@ -1014,8 +1237,10 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(15, 23, 42, 0.4); /* Smooth deep-slate dim shade */
-    backdrop-filter: blur(2px); /* Blurred environment accentuation */
+    background: rgba(15, 23, 42, 0.4);
+    /* Smooth deep-slate dim shade */
+    backdrop-filter: blur(2px);
+    /* Blurred environment accentuation */
     z-index: 9998;
     opacity: 0;
     pointer-events: none;
@@ -1024,75 +1249,106 @@ body {
 
 .sidebar-dim-background-overlay.visible {
     opacity: 1;
-    pointer-events: auto; /* Activates tap block capture dimensions */
+    pointer-events: auto;
+    /* Activates tap block capture dimensions */
 }
 
 /* Clean Responsive optimizations */
 @media (max-width: 480px) {
-    .nav-btn-label { display: none; } /* On super small screens, show only the SVG icon link inside the navbar */
+    .nav-btn-label {
+        display: none;
+    }
+
+    /* On super small screens, show only the SVG icon link inside the navbar */
 }
+
 /* ======================================================== */
 /* GLOBAL RESPONSIVE RESET FOR ALL IPHONES & ANDROIDS       */
 /* ======================================================== */
 @media (max-width: 768px) {
-    
+
     /* 1. Force the main website page wrapper body to fit mobile boundaries */
-    html, body {
+    html,
+    body {
         width: 100% !important;
-        overflow-x: hidden !important; /* STOPS horrible horizontal side-scrolling completely */
+        overflow-x: hidden !important;
+        /* STOPS horrible horizontal side-scrolling completely */
         margin: 0 !important;
         padding: 0 !important;
     }
 
     /* 2. Target every main division layout block on your website */
-    div, section, header, nav, main, footer, form {
-       /* width: 100% !important;*/
-        max-width: 100% !important;
-        box-sizing: border-box !important; /* Forces paddings inside screen boundaries */
-        float: none !important; /* Disables ancient broken positioning rules */
+    div,
+    section,
+    header,
+    nav,
+    main,
+    footer,
+    form {
+        /* width: 100% !important;*/
+        /*  max-width: 100% !important;*/
+        box-sizing: border-box !important;
+        /* Forces paddings inside screen boundaries */
+        float: none !important;
+        /* Disables ancient broken positioning rules */
     }
 
     /* 3. Auto-adjust your search forms, inputs, and feedback comments textareas */
-    input, textarea, select, button {
+    input,
+    textarea,
+    select,
+    button {
         width: 100% !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
-        font-size: 16px !important; /* Prevents iPhones from forcing an annoying automatic zoom zoom on tap */
+        font-size: 16px !important;
+        /* Prevents iPhones from forcing an annoying automatic zoom zoom on tap */
     }
 
     /* 4. Fix any side-by-side flex layout rows to stack cleanly vertically instead */
-    *[style*="display: flex"], .flex-container, .search-container {
+    *[style*="display: flex"],
+    .flex-container,
+    .search-container {
         flex-direction: column !important;
         gap: 12px !important;
     }
 }
 
 .container {
-  display: flex;
-  flex-wrap: wrap; /* This forces columns to stack vertically on phones instead of breaking */
+    display: flex;
+    flex-wrap: wrap;
+    /* This forces columns to stack vertically on phones instead of breaking */
 }
+
 img {
-  max-width: 100%;
-  height: auto;
+    max-width: 100%;
+    height: auto;
 }
+
 /* This applies only to mobile devices */
 @media (max-width: 768px) {
-  body {
-    font-size: 16px; /* Ensures text size matches laptop legibility */
-  }
+    body {
+        font-size: 16px;
+        /* Ensures text size matches laptop legibility */
+    }
 }
 
 #documentContentBody h1 {
-    font-size: 1.8rem;   /* Scales down the giant title */
+    font-size: 1.8rem;
+    /* Scales down the giant title */
     line-height: 1.3;
     margin-bottom: 15px;
 }
 
 #documentContentBody p {
-    font-size: 1rem;     /* Highly readable text sizing */
-    line-height: 1.6;    /* Adds comfortable breathing room between lines */
-    text-align: left;    /* Avoids weird gaps caused by justified text */
+    font-size: 1rem;
+    /* Highly readable text sizing */
+    line-height: 1.6;
+    /* Adds comfortable breathing room between lines */
+    text-align: left;
+    /* Avoids weird gaps caused by justified text */
 }
+
 .top-navbar or your-button-container-class {
     display: flex;
     justify-content: space-between;
@@ -1100,6 +1356,7 @@ img {
     gap: 10px;
     padding: 10px;
 }
+
 /* ==========================================================================
    GLOBAL RESET & ENVIRONMENT VARIABLES
    ========================================================================== */
@@ -1110,10 +1367,12 @@ img {
 }
 
 body {
-    background-color: #f6f8fa; /* Neutral background contrast color */
+    background-color: #f6f8fa;
+    /* Neutral background contrast color */
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     color: #333333;
-    padding-top: 70px; /* Leave padding clearance area height for sticky navbar */
+    padding-top: 70px;
+    /* Leave padding clearance area height for sticky navbar */
 }
 
 /* ==========================================================================
@@ -1172,7 +1431,7 @@ body {
     background: #ffffff;
     border: 1px solid #ccd1d9;
     border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     list-style: none;
     max-height: 250px;
     overflow-y: auto;
@@ -1187,10 +1446,25 @@ body {
     flex-direction: column;
 }
 
-.suggestion-item:last-child { border-bottom: none; }
-.suggestion-item:hover { background-color: #f5f7fa; }
-.suggestion-title { font-weight: 600; font-size: 14px; color: #111; }
-.suggestion-type { font-size: 11px; color: #777; margin-top: 2px; }
+.suggestion-item:last-child {
+    border-bottom: none;
+}
+
+.suggestion-item:hover {
+    background-color: #f5f7fa;
+}
+
+.suggestion-title {
+    font-weight: 600;
+    font-size: 14px;
+    color: #111;
+}
+
+.suggestion-type {
+    font-size: 11px;
+    color: #777;
+    margin-top: 2px;
+}
 
 /* Responsive  Download Action Controller UI Elements */
 .nav-download-btn {
@@ -1208,10 +1482,18 @@ body {
     transition: background-color 0.2s ease;
 }
 
-.nav-download-btn:hover { background-color:#2c537a; }
-.btn-text{
- color:white;
+.nav-download-btn:hover {
+    background-color: #2c537a;
 }
+
+.btn-text {
+    color: black;
+}
+
+.nav-download-btn:hover {
+    background-color: #2c537a;
+}
+
 /* ==========================================================================
     MULTI-PAGE SHEETS RENDERING ENGINES
    ========================================================================== */
@@ -1223,14 +1505,16 @@ body {
 .document-header-meta {
     max-width: 820px;
     margin: 0 auto 15px auto;
-    display: none; /* Keep layout clean since Title renders inside page Sheet 1 */
+    display: none;
+    /* Keep layout clean since Title renders inside page Sheet 1 */
 }
 
 /* Single Page Card Frame Layout block layout structure blueprint */
 .scribd-page-sheet {
     background: #ffffff;
     max-width: 820px;
-    margin: 0 auto 24px auto; /* Spatial uniform margin space between pages */
+    margin: 0 auto 24px auto;
+    /* Spatial uniform margin space between pages */
     padding: 50px 60px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
     border: 1px solid #eef0f2;
@@ -1243,13 +1527,18 @@ body {
     margin-bottom: 12px;
     margin-top: 20px;
 }
-.scribd-page-sheet h2:first-of-type { margin-top: 0; }
 
-.scribd-page-sheet p, .scribd-page-sheet li {
+.scribd-page-sheet h2:first-of-type {
+    margin-top: 0;
+}
+
+.scribd-page-sheet p,
+.scribd-page-sheet li {
     font-size: 16px;
     line-height: 1.65;
     color: #2c537a;
-    font-family: "Georgia", Times, serif; /* Clean literary typography accent */
+    font-family: "Georgia", Times, serif;
+    /* Clean literary typography accent */
 }
 
 .scribd-page-sheet ul {
@@ -1257,30 +1546,47 @@ body {
     margin-top: 8px;
 }
 
-.scribd-page-sheet li { margin-bottom: 8px; }
+.scribd-page-sheet li {
+    margin-bottom: 8px;
+}
 
 /* ==========================================================================
    PERFECT RESPONSIVE MOBILE VIEWPORT OVERRIDES
    ========================================================================== */
 @media (max-width: 768px) {
-    body { padding-top: 60px; }
-    
-    .nav-container { padding: 0 10px; }
-    .search-wrapper { width: 45%; }
-    
+    body {
+        padding-top: 60px;
+    }
+
+    .nav-container {
+        padding: 0 10px;
+    }
+
+    .search-wrapper {
+        width: 45%;
+    }
+
     .nav-download-btn {
         padding: 8px;
-        border-radius: 50%; /* Trims button into a circular action bubble */
+        border-radius: 50%;
+        /* Trims button into a circular action bubble */
     }
+
     .nav-download-btn .btn-text {
-        display: none; /* Hide wide text payload to maximize workspace real estate */
+        display: none;
+        /* Hide wide text payload to maximize workspace real estate */
     }
-    
-    .reading-viewport-area { padding: 0px; } /* Drop viewport edge pads completely */
+
+    .reading-viewport-area {
+        padding: 0px;
+    }
+
+    /* Drop viewport edge pads completely */
 
     /* Force page sheet container items to drop borders and look clean inline */
     .scribd-page-sheet {
-        margin: 0 0 12px 0; /* Space out rows cleanly via vertical bottom layouts */
+        margin: 0 0 12px 0;
+        /* Space out rows cleanly via vertical bottom layouts */
         padding: 24px 16px;
         box-shadow: none;
         border-left: none;
@@ -1291,10 +1597,20 @@ body {
 }
 
 @media (max-width: 480px) {
-    .nav-logo { font-size: 15px; }
-    .search-wrapper { width: 40%; }
-    #navbarSearchInput { padding: 6px 8px; font-size: 13px; }
+    .nav-logo {
+        font-size: 15px;
+    }
+
+    .search-wrapper {
+        width: 40%;
+    }
+
+    #navbarSearchInput {
+        padding: 6px 8px;
+        font-size: 13px;
+    }
 }
+
 /* Isolated Variables Scope */
 .sam-rm-master-wrapper {
     --rm-navy: #1e3a8a;
@@ -1303,7 +1619,7 @@ body {
     --rm-slate-muted: #64748b;
     --rm-ash-border: #e2e8f0;
     --rm-canvas-soft: #f8fafc;
-    
+
     width: 100%;
     max-width: 100%;
     background: #ffffff;
@@ -1314,70 +1630,95 @@ body {
     font-family: system-ui, -apple-system, sans-serif;
 
     @media (max-width: 768px) {
-    body { padding-top: 60px; }
-    
-    .nav-container { padding: 0 10px; }
-    .search-wrapper { width: 45%; }
-    
-    .nav-download-btn {
-        padding: 8px;
-        border-radius: 50%; /* Trims button into a circular action bubble */
-    }
-    .nav-download-btn .btn-text {
-        display: none; /* Hide wide text payload to maximize workspace real estate */
-    }
-    
-    .reading-viewport-area { padding: 0px; } /* Drop viewport edge pads completely */
+        body {
+            padding-top: 60px;
+        }
 
-    /* Force page sheet container items to drop borders and look clean inline */
-    .scribd-page-sheet {
-        margin: 0 0 12px 0; /* Space out rows cleanly via vertical bottom layouts */
-        padding: 24px 16px;
-        box-shadow: none;
-        border-left: none;
-        border-right: none;
-        border-radius: 0;
-        max-width: 100%;
-    }
+        .nav-container {
+            padding: 0 10px;
+        }
 
-    /* ========================================================
+        .search-wrapper {
+            width: 45%;
+        }
+
+        .nav-download-btn {
+            padding: 8px;
+            border-radius: 50%;
+            /* Trims button into a circular action bubble */
+        }
+
+        .nav-download-btn .btn-text {
+            display: none;
+            /* Hide wide text payload to maximize workspace real estate */
+        }
+
+        .reading-viewport-area {
+            padding: 0px;
+        }
+
+        /* Drop viewport edge pads completely */
+
+        /* Force page sheet container items to drop borders and look clean inline */
+        .scribd-page-sheet {
+            margin: 0 0 12px 0;
+            /* Space out rows cleanly via vertical bottom layouts */
+            padding: 24px 16px;
+            box-shadow: none;
+            border-left: none;
+            border-right: none;
+            border-radius: 0;
+            max-width: 100%;
+        }
+
+        /* ========================================================
        🆕 NEW ADDITION: MANAGING THE NOTES PAGE BUTTONS
        ======================================================== */
-    
-    /* 1. Target the box or wrapper holding your buttons */
-    .notes-buttons-container, 
-    .popular-subjects, 
-    .subjects-container {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important; /* Forces a neat 2-column mobile layout grid */
-        gap: 12px !important;                             /* Adds equal spacing between elements */
-        padding: 16px !important;                          /* Prevents buttons from hitting screen edges */
-        width: 100% !important;
-        box-sizing: border-box !important;
+
+        /* 1. Target the box or wrapper holding your buttons */
+        .notes-buttons-container,
+        .popular-subjects,
+        .subjects-container {
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            /* Forces a neat 2-column mobile layout grid */
+            gap: 12px !important;
+            /* Adds equal spacing between elements */
+            padding: 16px !important;
+            /* Prevents buttons from hitting screen edges */
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+
+        /* 2. Target the individual buttons or cards to scale down text/padding */
+        .notes-buttons-container a,
+        .notes-buttons-container button,
+        .subject-box,
+        .quiz-opt-btn {
+            width: 100% !important;
+            padding: 12px 10px !important;
+            /* Shrinks height for mobile fingertips */
+            font-size: 0.9rem !important;
+            /* Prevents long text string overflows */
+            text-align: center !important;
+            border-radius: 8px !important;
+            box-sizing: border-box !important;
+        }
     }
 
-    /* 2. Target the individual buttons or cards to scale down text/padding */
-    .notes-buttons-container a, 
-    .notes-buttons-container button,
-    .subject-box,
-    .quiz-opt-btn {
-        width: 100% !important;
-        padding: 12px 10px !important;                     /* Shrinks height for mobile fingertips */
-        font-size: 0.9rem !important;                      /* Prevents long text string overflows */
-        text-align: center !important;
-        border-radius: 8px !important;
-        box-sizing: border-box !important;
-    }
 }
 
-}
 :root {
-    --paper-bg-color: #fcfcf9;       /* Creamy off-white archival paper color */
-    --ink-dark: #0f172a;             /* Sharp fountain pen ink color */
-    --sam-navy: #2c537a;            /* Your brand accent blue */
-    --sam-navy-light:#2c537a;
-    --paper-margin-line: #fca5a5;    /* Soft red margin vertical line accent */
-    
+    --paper-bg-color: #fcfcf9;
+    /* Creamy off-white archival paper color */
+    --ink-dark: #0f172a;
+    /* Sharp fountain pen ink color */
+    --sam-navy: #2c537a;
+    /* Your brand accent blue */
+    --sam-navy-light: #2c537a;
+    --paper-margin-line: #fca5a5;
+    /* Soft red margin vertical line accent */
+
     /* Document State Tones */
     --ink-correct: #065f46;
     --paper-correct-bg: #f0fdf4;
@@ -1400,8 +1741,10 @@ body {
     position: relative;
     background: var(--paper-bg-color);
     border: 1px solid #e2e8f0;
-    border-radius: 4px; /* Crisp corners like raw paper */
-    padding: 45px 40px 45px 55px; /* Wider left margin for realistic binder indentation */
+    border-radius: 4px;
+    /* Crisp corners like raw paper */
+    padding: 45px 40px 45px 55px;
+    /* Wider left margin for realistic binder indentation */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
     z-index: 3;
     overflow: hidden;
@@ -1432,7 +1775,8 @@ body {
 }
 
 /* Sub-Paper Visual Stack Layers */
-.under-sheet-shadow-1, .under-sheet-shadow-2 {
+.under-sheet-shadow-1,
+.under-sheet-shadow-2 {
     position: absolute;
     background: var(--paper-bg-color);
     border: 1px solid #e2e8f0;
@@ -1442,12 +1786,14 @@ body {
     left: 16px;
     pointer-events: none;
 }
+
 .under-sheet-shadow-1 {
     top: 6px;
     transform: rotate(1deg);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
     z-index: 2;
 }
+
 .under-sheet-shadow-2 {
     top: 11px;
     transform: rotate(-0.8deg);
@@ -1482,7 +1828,7 @@ body {
     font-size: 0.78rem;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    color:#2c537a;
+    color: #2c537a;
     font-weight: 800;
 }
 
@@ -1519,7 +1865,8 @@ body {
 }
 
 .paper-question-text {
-    font-family: Georgia, serif; /* Elegant journalistic academic font */
+    font-family: Georgia, serif;
+    /* Elegant journalistic academic font */
     font-size: 1.35rem;
     color: var(--ink-dark);
     line-height: 1.5;
@@ -1553,7 +1900,8 @@ body {
     background: #fdfdfd;
     border-color: #2c537a;
     color: #2c537a;
-    padding-left: 24px; /* Slight typographic shift animation */
+    padding-left: 24px;
+    /* Slight typographic shift animation */
 }
 
 /* Functional Selection Highlight States */
@@ -1585,7 +1933,7 @@ body {
 }
 
 .appendix-box.correct-pane {
-    background:#2c537a;
+    background: #2c537a;
     border-color: #a7f3d0;
 }
 
@@ -1600,7 +1948,10 @@ body {
     font-size: 0.95rem;
     font-weight: 700;
 }
-.correct-pane .status-label { color: var(--ink-correct); }
+
+.correct-pane .status-label {
+    color: var(--ink-correct);
+}
 
 .appendix-desc {
     margin: 0;
@@ -1635,20 +1986,45 @@ body {
     background: var(--sam-navy-light);
 }
 
-.hidden { display: none !important; }
+.hidden {
+    display: none !important;
+}
 
 @keyframes fadeInPaper {
-    from { opacity: 0; transform: translateY(6px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Responsive Adaptive Layering */
 @media (max-width: 580px) {
-    .academic-sheet { padding: 35px 20px 35px 35px; }
-    .academic-sheet::before { left: 24px; }
-    .paper-question-text { font-size: 1.15rem; }
-    .paper-choice-row { padding: 14px 16px; font-size: 0.95rem; }
-    .paper-clip-graphic { right: 20px; scale: 0.8; }
+    .academic-sheet {
+        padding: 35px 20px 35px 35px;
+    }
+
+    .academic-sheet::before {
+        left: 24px;
+    }
+
+    .paper-question-text {
+        font-size: 1.15rem;
+    }
+
+    .paper-choice-row {
+        padding: 14px 16px;
+        font-size: 0.95rem;
+    }
+
+    .paper-clip-graphic {
+        right: 20px;
+        scale: 0.8;
+    }
 }
 
 
@@ -1665,7 +2041,7 @@ body {
 
 .sam-rm-display-title {
     font-size: 1.75rem;
-    color:#2c537a;
+    color: #2c537a;
     font-weight: 800;
     margin: 0 0 10px 0;
     letter-spacing: -0.5px;
@@ -1724,7 +2100,7 @@ body {
 
 /* State Modifiers styling logic maps explicitly */
 .sam-rm-state-active .sam-rm-node-circle {
-    background:#2c537a;
+    background: #2c537a;
     color: #ffffff;
     box-shadow: 0 0 0 6px rgba(30, 58, 138, 0.15);
 }
@@ -1812,50 +2188,90 @@ body {
 
 /* Mobile Responsiveness Pass Isolation */
 @media (max-width: 580px) {
-    .sam-rm-canvas-grid { padding: 0 16px; }
-    .sam-rm-display-title { font-size: 1.4rem; }
-    .sam-rm-info-card { padding: 18px; }
-    .sam-rm-card-heading { font-size: 1.05rem; }
-    .sam-rm-card-paragraph { font-size: 0.88rem; }
-    .sam-rm-node-circle { width: 30px; height: 30px; font-size: 0.75rem; }
-    .sam-rm-indicator-pillar { width: 30px; }
-    .sam-rm-connector-line { top: 30px; }
+    .sam-rm-canvas-grid {
+        padding: 0 16px;
+    }
+
+    .sam-rm-display-title {
+        font-size: 1.4rem;
+    }
+
+    .sam-rm-info-card {
+        padding: 18px;
+    }
+
+    .sam-rm-card-heading {
+        font-size: 1.05rem;
+    }
+
+    .sam-rm-card-paragraph {
+        font-size: 0.88rem;
+    }
+
+    .sam-rm-node-circle {
+        width: 30px;
+        height: 30px;
+        font-size: 0.75rem;
+    }
+
+    .sam-rm-indicator-pillar {
+        width: 30px;
+    }
+
+    .sam-rm-connector-line {
+        top: 30px;
+    }
 }
+
 /* ==========================================================================
    MASTER UNIFIED MOBILE LAYOUT RESOLUTION ENGINE (Applies up to 768px screens)
    ========================================================================== */
 @media (max-width: 768px) {
 
     /* --- 1. GLOBAL ENVIRONMENT & HEADROOM FIXES --- */
-    html, body {
+    html,
+    body {
         width: 100% !important;
         max-width: 100% !important;
-        overflow-x: hidden !important; /* Completely eliminates horizontal page shaking */
+        overflow-x: hidden !important;
+        /* Completely eliminates horizontal page shaking */
         margin: 0 !important;
         padding: 0 !important;
     }
 
-    body {
-        padding-top: 140px !important; /* Force-overrides the broken 600px blanket padding gap */
-    }
+    /*body {
+        padding-top: 140px !important;
+        /* Force-overrides the broken 600px blanket padding gap */
+
 
     /* Target all block groups to sit flush within mobile glass viewports */
-    div, section, header, nav, main, footer, form {
+    div,
+    section,
+    header,
+    nav,
+    main,
+    footer,
+    form {
         box-sizing: border-box !important;
     }
 
     /* Prevent mobile keyboard tap inputs from auto-zooming viewports on Safari/iOS */
-    input, textarea, select, button {
+    input,
+    textarea,
+    select,
+    button {
         font-size: 16px !important;
     }
 
     /* --- 2. UNIVERSAL NAV-BAR ROW BREAKERS (Fixes Index & Reading Page Headers) --- */
-    .site-header, .navbar, .top-navbar {
+    .site-header,
+    .navbar,
+    .top-navbar {
         position: fixed !important;
         top: 0 !important;
         left: 0 !important;
         width: 100% !important;
-        height: auto !important;
+
         padding: 12px 0 !important;
         background-color: #ffffff !important;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
@@ -1863,7 +2279,9 @@ body {
     }
 
     /* Forces squished text items, search inputs, and buttons into elegant vertical layout stacks */
-    .nav-container, .nav-containerr, .search-wrapper {
+    .nav-container,
+    .nav-containerr,
+    .search-wrapper {
         display: flex !important;
         flex-direction: column !important;
         justify-content: center !important;
@@ -1875,7 +2293,8 @@ body {
     }
 
     /* Center branding identity labels */
-    .brand-logo, .nav-logo {
+    .brand-logo,
+    .nav-logo {
         display: flex !important;
         justify-content: center !important;
         align-items: center !important;
@@ -1885,7 +2304,9 @@ body {
     }
 
     /* Pull navigation link strings horizontally side-by-side but safely centered under the logo */
-    .main-navigation, .footer-nav, .nav-links {
+    .main-navigation,
+    .footer-nav,
+    .nav-links {
         display: flex !important;
         flex-direction: row !important;
         justify-content: center !important;
@@ -1897,15 +2318,19 @@ body {
     }
 
     /* --- 3. FLUID ENGINE INPUTS & ACTION BUTTONS --- */
-    .search-container, .search-wrapperr, .search-field-container {
+    .search-container,
+    .search-wrapperr,
+    .search-field-container {
         width: 100% !important;
         max-width: 100% !important;
         position: relative !important;
     }
 
-    .search-input, #navbarSearchInput {
+    .search-input,
+    #navbarSearchInput {
         width: 100% !important;
-        padding: 10px 14px 10px 40px !important; /* Generous space allocation for loop icons */
+        padding: 10px 14px 10px 40px !important;
+        /* Generous space allocation for loop icons */
         font-size: 16px !important;
         box-sizing: border-box !important;
     }
@@ -1916,7 +2341,9 @@ body {
     }
 
     /* Stretch buttons to provide comfortable touch targets */
-    .nav-download-btn, .download-nav-btn, .btn-large {
+    .nav-download-btn,
+    .download-nav-btn,
+    .btn-large {
         width: 100% !important;
         max-width: 100% !important;
         justify-content: center !important;
@@ -1925,15 +2352,133 @@ body {
         display: flex !important;
     }
 
+    /* ─── DESKTOP VIEW STYLE RULES ─── */
+    .nav-containerr {
+        --brand-dark: #2c537a;
+        --brand-primary: #2c537a;
+        --bg-light: #ffffff;
+        --border-color: #e5e7eb;
+        --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+        --transition-smooth: all 0.2s ease-in-out;
+
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 16px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 60px;
+        padding: 0 16px !important;
+        background-color: var(--bg-light);
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: var(--shadow-sm);
+        box-sizing: border-box !important;
+    }
+
+    .nav-logo {
+        font-weight: bold;
+        color: var(--brand-dark);
+        text-decoration: none;
+        font-size: 18px;
+        white-space: nowrap;
+    }
+
+    .search-wrapperr {
+        position: relative;
+        flex-grow: 1;
+        max-width: 500px;
+        /* Limits search size on wide desktop monitors */
+    }
+
+    #navbarSearchInput {
+        width: 100% !important;
+        height: 38px;
+        padding: 0 14px;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        font-size: 15px;
+        outline: none;
+        box-sizing: border-box;
+    }
+
+    .nav-download-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        height: 38px;
+        padding: 0 16px;
+        background: var(--brand-primary);
+        color: var(--bg-light);
+        border: none;
+        border-radius: 6px;
+        font-weight: 500;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+
+
+    /* ─── SMART MOBILE VIEW (768px and below) ─── */
+    @media (max-width: 768px) {
+        .nav-containerr {
+            height: 56px !important;
+            gap: 8px !important;
+            /* Tightens gap to fit screen borders */
+            padding: 0 10px !important;
+        }
+
+        /* 1. Hides the bulky text logo so everything fits on one single line */
+        .nav-logo {
+            display: none !important;
+        }
+
+        /* 2. Forces the search wrapper to stretch across the remaining screen */
+        .search-wrapperr {
+            flex-grow: 1 !important;
+            max-width: 100% !important;
+        }
+
+        #navbarSearchInput {
+            height: 36px !important;
+            font-size: 14px !important;
+            /* Prevents mobile browser auto-zooming */
+        }
+
+        /* 3. Converts the download button into a compact circle */
+        .nav-download-btn {
+            flex-shrink: 0 !important;
+            /* Stops the search bar from flattening it */
+            width: 36px !important;
+            height: 36px !important;
+            padding: 0 !important;
+            border-radius: 50% !important;
+        }
+
+        .nav-download-btn svg {
+            width: 16px !important;
+            height: 16px !important;
+        }
+
+        /* 4. Hides the word "Download" so it doesn't drop down */
+        .nav-download-btn .btn-text {
+            display: none !important;
+        }
+    }
+
     /* --- 4. HERO SECTION & VECTOR GRAPHICS STABILIZATION --- */
     .hero-section {
-        margin-top: 30px !important; /* Cushion against floating headers */
+        /*margin-top: 30px !important;
+        /* Cushion against floating headers */
         padding: 40px 16px !important;
         text-align: center !important;
     }
 
     /* Keep graphic roadmaps and deck canvas frames from scaling past screen edges */
-    .hero-content img, .roadmap-section img, .slide-canvas, .slide-card {
+    .hero-content img,
+    .roadmap-section img,
+    .slide-canvas,
+    .slide-card {
         width: 100% !important;
         max-width: 100% !important;
         height: auto !important;
@@ -1948,41 +2493,58 @@ body {
         bottom: -60px !important;
         transform: none !important;
     }
-    .prev-arrow { left: calc(50% - 54px) !important; }
-    .next-arrow { right: calc(50% - 54px) !important; }
-    .progress-indicator-bar { margin-top: 80px !important; }
+
+    .prev-arrow {
+        left: calc(50% - 54px) !important;
+    }
+
+    .next-arrow {
+        right: calc(50% - 54px) !important;
+    }
+
+    .progress-indicator-bar {
+        margin-top: 80px !important;
+    }
 
     /* --- 5. COMPACT TYPOGRAPHY & CARD SYSTEMS GRID RESCALE --- */
-    .hero-content h1, .courses h2, .deck-header h1 {
+    .hero-content h1,
+    .courses h2,
+    .deck-header h1 {
         font-size: 26px !important;
         line-height: 1.25 !important;
         letter-spacing: -0.5px !important;
     }
 
-    .hero-content p, #documentContentBody p {
+    .hero-content p,
+    #documentContentBody p {
         font-size: 15px !important;
         line-height: 1.5 !important;
     }
 
     /* Stack cards array listings neatly vertically instead of floating side-by-side */
-    .card-container, .nav-sidebar-topics-list {
+    .card-container,
+    .nav-sidebar-topics-list {
         display: flex !important;
         flex-direction: column !important;
         gap: 16px !important;
         width: 100% !important;
     }
 
-    .card, .nav-sidebar-card, .legal-card {
+    .card,
+    .nav-sidebar-card,
+    .legal-card {
         width: 100% !important;
         max-width: 100% !important;
         padding: 20px !important;
     }
-    
+
     .legal-card {
-        width: 92% !important; /* Give modals side breathing margin room gaps */
+        width: 92% !important;
+        /* Give modals side breathing margin room gaps */
         max-height: 85vh !important;
     }
 }
+
 /* ==========================================================================
    ACADEMIC LEARNING ROADMAP MOBILE-FIRST OVERHAUL
    ========================================================================== */
@@ -2028,7 +2590,8 @@ body {
 /* Convert horizontal rows into a standalone block structure on mobile */
 .sam-rm-step-row {
     display: flex !important;
-    flex-direction: column !important; /* Forces layout to stack top-to-bottom */
+    flex-direction: column !important;
+    /* Forces layout to stack top-to-bottom */
     align-items: center !important;
     gap: 12px !important;
     width: 100% !important;
@@ -2068,7 +2631,8 @@ body {
     border-radius: 12px !important;
     border: 1px solid #e2e8f0 !important;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
-    text-align: center !important; /* Centers card details for optimal tracking balance */
+    text-align: center !important;
+    /* Centers card details for optimal tracking balance */
 }
 
 /* Smooth active phase styling states mapping */
@@ -2094,8 +2658,15 @@ body {
     margin-bottom: 12px !important;
 }
 
-.sam-rm-badge-active { background-color: #eff6ff !important; color: #1a56db !important; }
-.sam-rm-badge-locked { background-color: #f1f5f9 Imporatnt; color: #475569 !important; }
+.sam-rm-badge-active {
+    background-color: #eff6ff !important;
+    color: #1a56db !important;
+}
+
+.sam-rm-badge-locked {
+    background-color: #f1f5f9 Imporatnt;
+    color: #475569 !important;
+}
 
 .sam-rm-card-heading {
     font-size: 18px !important;
@@ -2122,7 +2693,8 @@ body {
     font-weight: 600 !important;
     text-decoration: none !important;
     border-radius: 8px !important;
-    width: 100% !important; /* Full width touch button target */
+    width: 100% !important;
+    /* Full width touch button target */
     max-width: 240px !important;
     margin: 0 auto !important;
     transition: all 0.2s ease !important;
@@ -2133,7 +2705,7 @@ body {
    2. DESKTOP OPTIMIZATIONS (Snaps back into timeline row layout on larger displays)
    ========================================================================== */
 @media (min-width: 768px) {
-    
+
     .sam-rm-master-wrapper {
         padding: 60px 40px !important;
     }
@@ -2188,16 +2760,18 @@ body {
         margin: 0 !important;
     }
 }
+
 /* ==========================================================================
    FORCE ROADMAP CARDS TO BE RECTANGULAR ON MOBILE SCREEN DEVICES
    ========================================================================== */
 @media (max-width: 768px) {
-    
+
     .sam-rm-info-card {
         width: 100% !important;
         /* Less padding on top/bottom, more on sides makes it a crisp rectangle */
-        padding: 14px 20px !important; 
-        text-align: left !important; /* Shifting text left keeps rows short and wide */
+        padding: 14px 20px !important;
+        text-align: left !important;
+        /* Shifting text left keeps rows short and wide */
         border-radius: 10px !important;
     }
 
@@ -2216,22 +2790,26 @@ body {
     /* Keep the launcher button tight and wide to complete the rectangular feel */
     .sam-rm-card-link-action {
         width: 100% !important;
-        max-width: 100% !important; /* Spans full card row width horizontally */
-        padding: 8px 16px !important; /* Thin vertical touch padding bar design */
+        max-width: 100% !important;
+        /* Spans full card row width horizontally */
+        padding: 8px 16px !important;
+        /* Thin vertical touch padding bar design */
         border-radius: 6px !important;
         font-size: 13.5px !important;
     }
 }
+
 /* ==========================================================================
    COMPLETE UNBOXING ENGINE - INCREASED HIGH-BREATHING MARGINS
    ========================================================================== */
 
 /* Applies globally to Windows and Mobile Viewports */
-.sam-paper-wrapper, 
+.sam-paper-wrapper,
 section.courses:has(.academic-sheet) {
     width: 100% !important;
     max-width: 100% !important;
-    background: transparent !important; /* Strips the outer container card box layer */
+    background: transparent !important;
+    /* Strips the outer container card box layer */
     box-shadow: none !important;
     border: none !important;
     padding: 0 !important;
@@ -2240,22 +2818,30 @@ section.courses:has(.academic-sheet) {
 
 .academic-sheet {
     /* calc(100% - 80px) creates clean, balanced 40px margin walls on screen margins */
-    width: calc(100% - 80px) !important; 
-    max-width: 1240px !important;       /* Clean boundary limits on massive desktop monitors */
-    margin: 60px auto !important;       /* Massive 60px top/bottom margin gap to clear adjacent elements */
-    padding: 44px 32px !important;      /* Immersive inner space padding for layout depth */
-    background: #ffffff !important;     /* Clean canvas sheet directly over the homepage */
+    width: calc(100% - 80px) !important;
+    max-width: 1240px !important;
+    /* Clean boundary limits on massive desktop monitors */
+    margin: 60px auto !important;
+    /* Massive 60px top/bottom margin gap to clear adjacent elements */
+    padding: 44px 32px !important;
+    /* Immersive inner space padding for layout depth */
+    background: #ffffff !important;
+    /* Clean canvas sheet directly over the homepage */
     border: none !important;
-    border-left: 6px solid #2c537a !important; /* Asymmetrical modern designer blueprint accent line */
-    border-radius: 0 20px 20px 0 !important;   /* Sleek rounded trailing edges */
-    box-shadow: 0 15px 35px rgba(44, 83, 122, 0.05) !important; /* High-end ultra-soft depth shadow */
+    border-left: 6px solid #2c537a !important;
+    /* Asymmetrical modern designer blueprint accent line */
+    border-radius: 0 20px 20px 0 !important;
+    /* Sleek rounded trailing edges */
+    box-shadow: 0 15px 35px rgba(44, 83, 122, 0.05) !important;
+    /* High-end ultra-soft depth shadow */
     box-sizing: border-box !important;
 }
 
 /* Fix option button layouts to span beautifully across the unboxed workspace */
 .paper-options-stack {
     display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important; /* 2 columns on desktop, 1 on mobile */
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+    /* 2 columns on desktop, 1 on mobile */
     gap: 16px !important;
     width: 100% !important;
     margin-top: 28px !important;
@@ -2275,32 +2861,37 @@ section.courses:has(.academic-sheet) {
 }
 
 /* Interactive sliding indentation accent upon active tap or hover selection */
-.paper-choice-row:hover, 
+.paper-choice-row:hover,
 .paper-choice-row:active {
     background: linear-gradient(135deg, #2c537a, #1d354e) !important;
     color: #ffffff !important;
     border-color: #2c537a !important;
-    padding-left: 28px !important; /* Premium structural slider motion */
+    padding-left: 28px !important;
+    /* Premium structural slider motion */
 }
 
 /* --- Mobile Device Responsive Compression Adjustment --- */
 @media (max-width: 768px) {
     .academic-sheet {
         /* calc(100% - 40px) locks down crisp, uniform 20px margins on narrow phone frames */
-        width: calc(100% - 40px) !important; 
-        margin: 40px auto !important;       /* Comfortable vertical block separation context gap */
-        padding: 28px 18px !important;      /* Clean mobile padding metrics */
+        width: calc(100% - 40px) !important;
+        margin: 40px auto !important;
+        /* Comfortable vertical block separation context gap */
+        padding: 28px 18px !important;
+        /* Clean mobile padding metrics */
     }
-    
+
     .paper-options-stack {
-        grid-template-columns: 1fr !important; /* Drops safely to clean vertical blocks on mobile */
+        grid-template-columns: 1fr !important;
+        /* Drops safely to clean vertical blocks on mobile */
         gap: 12px !important;
     }
-    
+
     .paper-question-text {
         font-size: 18px !important;
     }
 }
+
 /* ==========================================================================
    MASTER SLIDING NAV-SIDEBAR OVERHAUL (FIXES CLIPPING & SHIFTING)
    ========================================================================== */
@@ -2312,29 +2903,36 @@ section.courses:has(.academic-sheet) {
     .nav-sliding-sidebar {
         position: fixed !important;
         top: 0 !important;
-        right: 0 !important; /* Locks anchor explicitly to the right edge */
-        width: 100% !important; /* Spans full width on mobile for clean focus */
-        max-width: 320px !important; /* Comfortable reading profile layout size */
+        right: 0 !important;
+        /* Locks anchor explicitly to the right edge */
+        width: 100% !important;
+        /* Spans full width on mobile for clean focus */
+        max-width: 320px !important;
+        /* Comfortable reading profile layout size */
         height: 100vh !important;
         background: #ffffff !important;
-        z-index: 10000 !important; /* Layers safely above sticky top headers */
+        z-index: 10000 !important;
+        /* Layers safely above sticky top headers */
         box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1) !important;
         box-sizing: border-box !important;
     }
 
     /* 2. Add extra horizontal safe padding space to stop text clipping */
     .nav-sidebar-inner {
-        padding: 24px 20px !important; /* Generous side padding keeps text visible */
+        padding: 24px 20px !important;
+        /* Generous side padding keeps text visible */
         display: flex !important;
         flex-direction: column !important;
         height: 100% !important;
-        overflow-y: auto !important; /* Allows smooth scrolling inside the menu */
+        overflow-y: auto !important;
+        /* Allows smooth scrolling inside the menu */
         box-sizing: border-box !important;
     }
 
     /* 3. Standardize Header Text Typography inside the panel */
     .nav-sidebar-header h3 {
-        font-size: 18px !important; /* Crisp, legible print size */
+        font-size: 18px !important;
+        /* Crisp, legible print size */
         font-weight: 800 !important;
         color: #0a192f !important;
         margin: 0 0 4px 0 !important;
@@ -2359,7 +2957,8 @@ section.courses:has(.academic-sheet) {
     /* 5. Fluid topic rows to maximize layout real estate */
     .nav-sidebar-card {
         display: flex !important;
-        flex-direction: row !important; /* Keeps icon and text side-by-side cleanly */
+        flex-direction: row !important;
+        /* Keeps icon and text side-by-side cleanly */
         align-items: flex-start !important;
         gap: 12px !important;
         padding: 12px !important;
@@ -2373,7 +2972,8 @@ section.courses:has(.academic-sheet) {
     .card-icon-box {
         width: 36px !important;
         height: 36px !important;
-        flex-shrink: 0 !important; /* Stops the icon container from getting squished */
+        flex-shrink: 0 !important;
+        /* Stops the icon container from getting squished */
     }
 
     .card-body-text h4 {
@@ -2389,78 +2989,73 @@ section.courses:has(.academic-sheet) {
         color: #64748b !important;
     }
 }
+
 /* ==========================================================================
    PRODUCTION-GRADE: ULTRA-THIN AMAZON MOBILE NAVBAR (LOW PROFILE)
    ========================================================================== */
 @media (max-width: 768px) {
-    
+
     /* 1. Low clearance headroom so your website content sits near the top */
     body {
-        padding-top: 68px !important; 
-    }
-
-    /* 2. Micro-height sticky header box (Amazon mobile's compact footprint) */
-    header.site-header,
-    .site-header {
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: auto !important; /* Dynamically compresses to tightly hug our elements */
-        background-color: #ffffff !important; /* Your clean white website background */
-        border-bottom: 1px solid #e2e8f0 !important;
-        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04) !important;
-        z-index: 10000 !important;
-        padding: 4px 0 !important; /* Shrunk vertical padding to absolute minimal bounds */
-        overflow: visible !important;
+        padding-top: 68px !important;
     }
 
     /* 3. The Two-Row Smart Split Flex Matrix */
     .nav-container {
         display: flex !important;
         flex-direction: row !important;
-        flex-wrap: wrap !important; /* Permits search bar to drop cleanly into row 2 */
+        flex-wrap: wrap !important;
+        /* Permits search bar to drop cleanly into row 2 */
         align-items: center !important;
         justify-content: space-between !important;
         width: 100% !important;
         height: auto !important;
-        padding: 0 8px !important; /* Tight side margins maximize horizontal space */
-        gap: 2px 0 !important; /* Micro 2px gap space between Row 1 and Row 2 */
+        padding: 0 8px !important;
+        /* Tight side margins maximize horizontal space */
+        gap: 2px 0 !important;
+        /* Micro 2px gap space between Row 1 and Row 2 */
         overflow: visible !important;
     }
 
-     /* ==========================================================================
+    /* ==========================================================================
    HERO CALL-TO-ACTION BUTTON - COMPACT RESPONSIVE SCALE DOWN
    ========================================================================== */
-@media (max-width: 768px) {
-    
-    /* Target the button with high class specificity to override previous layout rules */
-    button.btn.btn-primary.btn-large,
-    .btn-large {
-        width: auto !important;             /* Cancels out any block or 100% full-width stretches */
-        max-width: max-content !important;  /* Snugly fits right around your inner textual label width */
-        display: inline-flex !important;    /* Keeps it behaving like a centered desktop baseline inline button */
-        align-items: center !important;
-        justify-content: center !important;
-        margin: 0 auto !important;          /* Keeps it perfectly centered inside your hero grid container */
-        
-        /* Shrunk padding parameters down to match textbook desktop sizing metrics */
-        padding: 8px 20px !important;       
-        font-size: 14px !important;         /* Delicate, crisp typography instead of oversized text headers */
-        letter-spacing: 0.2px !important;
-        border-radius: 20px !important;     /* Smooth, lightweight rounded profile curve edges */
-        box-shadow: 0 4px 6px rgba(44, 83, 122, 0.15) !important;
+    @media (max-width: 768px) {
+
+        /* Target the button with high class specificity to override previous layout rules */
+        button.btn.btn-primary.btn-large,
+        .btn-large {
+            width: auto !important;
+            /* Cancels out any block or 100% full-width stretches */
+            max-width: max-content !important;
+            /* Snugly fits right around your inner textual label width */
+            display: inline-flex !important;
+            /* Keeps it behaving like a centered desktop baseline inline button */
+            align-items: center !important;
+            justify-content: center !important;
+            margin: 0 auto !important;
+            /* Keeps it perfectly centered inside your hero grid container */
+
+            /* Shrunk padding parameters down to match textbook desktop sizing metrics */
+            padding: 8px 20px !important;
+            font-size: 14px !important;
+            /* Delicate, crisp typography instead of oversized text headers */
+            letter-spacing: 0.2px !important;
+            border-radius: 20px !important;
+            /* Smooth, lightweight rounded profile curve edges */
+            box-shadow: 0 4px 6px rgba(44, 83, 122, 0.15) !important;
+        }
     }
 }
-}
+
 /* ==========================================================================
    PRODUCTION MODULE: LOW-PROFILE MICRO 2-ROW SPLIT MOBILE NAVBAR
    ========================================================================== */
 @media (max-width: 768px) {
-    
+
     /* 1. Low clearance headroom so your website content sits near the top */
     body {
-        padding-top: 76px !important; 
+        padding-top: 76px !important;
     }
 
     /* 2. Micro-height sticky header container (Ultra-thin compact profile) */
@@ -2471,12 +3066,15 @@ section.courses:has(.academic-sheet) {
         top: 0 !important;
         left: 0 !important;
         width: 100% !important;
-        height: auto !important; /* Dynamically compresses to tightly hug our two rows */
-        background-color: #ffffff !important; /* Your clean white website background */
+        height: auto !important;
+        /* Dynamically compresses to tightly hug our two rows */
+        background-color: #ffffff !important;
+        /* Your clean white website background */
         border-bottom: 1px solid #e2e8f0 !important;
         box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04) !important;
         z-index: 10000 !important;
-        padding: 4px 0 !important; /* Shrunk vertical padding to absolute minimal bounds */
+        padding: 4px 0 !important;
+        /* Shrunk vertical padding to absolute minimal bounds */
         overflow: visible !important;
     }
 
@@ -2484,20 +3082,23 @@ section.courses:has(.academic-sheet) {
     .nav-container {
         display: flex !important;
         flex-direction: row !important;
-        flex-wrap: wrap !important; /* CRITICAL: Permits the search bar to drop cleanly into Row 2 */
+        flex-wrap: wrap !important;
+        /* CRITICAL: Permits the search bar to drop cleanly into Row 2 */
         align-items: center !important;
         justify-content: space-between !important;
         width: 100% !important;
         height: auto !important;
-        padding: 0 10px !important; /* Tight side padding looks crisp and compact */
-        gap: 4px 0 !important; /* Minimal 4px vertical gap space between Row 1 and Row 2 */
+        padding: 0 10px !important;
+        /* Tight side padding looks crisp and compact */
+        gap: 4px 0 !important;
+        /* Minimal 4px vertical gap space between Row 1 and Row 2 */
         overflow: visible !important;
     }
 
     /* ==========================================
        ROW 1: COHESIVE LOGO & INLINE ACTION MENUS
        ========================================== */
-    
+
     /* Small, elegant brand logo layout */
     .brand-logo {
         order: 1 !important;
@@ -2506,28 +3107,32 @@ section.courses:has(.academic-sheet) {
         align-items: center !important;
         gap: 4px !important;
         text-decoration: none !important;
-        
+
     }
 
     .logo-icon {
-        width: 14px !important; /* Ultra-thin shrunk icon graphics */
+        width: 14px !important;
+        /* Ultra-thin shrunk icon graphics */
         height: 14px !important;
-        fill: #2c537a !important; /* Core theme accent blue */
+        fill: #2c537a !important;
+        /* Core theme accent blue */
         display: inline-block !important;
-         margin-top: 15px !important;
-           margin: 5 !important;
+        margin-top: 15px !important;
+        margin: 5 !important;
     }
 
     .logo-text {
-        font-size: 15px !important; /* Delicate, razor-sharp micro-typography */
+        font-size: 15px !important;
+        /* Delicate, razor-sharp micro-typography */
         font-weight: 750 !important;
-        color: #0a192f !important; /* Your deep dark primary ink text color */
+        color: #0a192f !important;
+        /* Your deep dark primary ink text color */
         letter-spacing: -0.4px !important;
         display: inline-block !important;
-          margin-top: 15px !important;
-               margin: 5 !important;
+        margin-top: 15px !important;
+        margin: 5 !important;
     }
-    
+
     .logo-text span {
         color: #2c537a !important;
     }
@@ -2539,17 +3144,21 @@ section.courses:has(.academic-sheet) {
         flex-direction: row !important;
         align-items: center !important;
         justify-content: flex-end !important;
-        gap: 8px !important; /* Compact grouping gap prevents row break stretching */
+        gap: 8px !important;
+        /* Compact grouping gap prevents row break stretching */
         width: auto !important;
         margin: 0 !important;
         padding: 0 !important;
     }
 
-    .nav-link, .dropdown-trigger {
+    .nav-link,
+    .dropdown-trigger {
         display: inline-block !important;
-        font-size: 11.5px !important; /* Clean minimal text scaling bounds */
+        font-size: 11.5px !important;
+        /* Clean minimal text scaling bounds */
         font-weight: 700 !important;
-        color: #475569 !important; /* Neutral muted theme layout text links */
+        color: #475569 !important;
+        /* Neutral muted theme layout text links */
         background: transparent !important;
         border: none !important;
         padding: 2px !important;
@@ -2561,7 +3170,8 @@ section.courses:has(.academic-sheet) {
         display: inline-block !important;
         font-size: 11.5px !important;
         font-weight: 700 !important;
-        color: #2c537a !important; /* Matches your core brand blue links */
+        color: #2c537a !important;
+        /* Matches your core brand blue links */
         text-decoration: none !important;
         white-space: nowrap !important;
         margin: 0 !important;
@@ -2570,7 +3180,7 @@ section.courses:has(.academic-sheet) {
 
     /* Small Topics Sidebar button shortcut icon link trigger */
     .nav-sidebar-trigger-btn {
-      /*  order: 4 !important;*/
+        /*  order: 4 !important;*/
         background: transparent !important;
         border: none !important;
         display: inline-flex !important;
@@ -2594,13 +3204,15 @@ section.courses:has(.academic-sheet) {
     /* ==========================================
        ROW 2: NARROWER LOW-PROFILE SEARCH FIELD
        ========================================== */
-    
+
     /* Force the search container to sit right below Row 1 with zero wasted width */
     .search-container {
         order: 5 !important;
-        width: 96% !important; /* Leaves thin margin space on the outer window walls so it's not too wide */
+        width: 96% !important;
+        /* Leaves thin margin space on the outer window walls so it's not too wide */
         max-width: 100% !important;
-        margin: 2px auto 0 auto !important; /* Balanced micro top gap */
+        margin: 2px auto 0 auto !important;
+        /* Balanced micro top gap */
         padding: 0 !important;
     }
 
@@ -2613,11 +3225,15 @@ section.courses:has(.academic-sheet) {
 
     .search-input {
         width: 100% !important;
-        height: 26px !important; /* Low-profile ultra-thin input text field tracking height */
-        padding: 0 32px 0 10px !important; 
-        font-size: 12px !important; /* Small textbook print sizing inside input frame */
-        border-radius: 6px !important; /* Sharp modern container style box cuts */
-        background-color: #f1f5f9 !important; /* Your light background grey tint */
+        height: 26px !important;
+        /* Low-profile ultra-thin input text field tracking height */
+        padding: 0 32px 0 10px !important;
+        font-size: 12px !important;
+        /* Small textbook print sizing inside input frame */
+        border-radius: 6px !important;
+        /* Sharp modern container style box cuts */
+        background-color: #f1f5f9 !important;
+        /* Your light background grey tint */
         border: 1px solid #cbd5e1 !important;
         color: #1e293b !important;
         outline: none !important;
@@ -2628,9 +3244,11 @@ section.courses:has(.academic-sheet) {
         position: absolute !important;
         right: 0 !important;
         top: 0 !important;
-        width: 28px !important; /* Narrow width button space optimization */
+        width: 28px !important;
+        /* Narrow width button space optimization */
         height: 26px !important;
-        background-color: #2c537a !important; /* Built utilizing your core branding blue */
+        background-color: #2c537a !important;
+        /* Built utilizing your core branding blue */
         border: none !important;
         border-radius: 0 5px 5px 0 !important;
         display: flex !important;
@@ -2642,10 +3260,11 @@ section.courses:has(.academic-sheet) {
     .search-icon {
         width: 11px !important;
         height: 11px !important;
-        color: #ffffff !important; /* White graphic vector symbol */
+        color: #ffffff !important;
+        /* White graphic vector symbol */
         stroke-width: 2.5 !important;
     }
-    
+
     /* Keep dropdown suggestion overlay bounds completely standard aligned */
     .search-suggestions-box,
     .suggestions-dropdown {
@@ -2654,54 +3273,13 @@ section.courses:has(.academic-sheet) {
         top: 100% !important;
     }
 }
-/* ==========================================================================
-   LOW-OPACITY TRANSPARENT GRAPHIC NAVBAR BACKGROUND ACCENT (.JPG VERSION)
-   ========================================================================== */
-@media (max-width: 768px) {
 
-    /* 1. Ensure the container handles a floating layered backdrop track */
-    header.site-header,
-    .site-header {
-        position: fixed !important;
-        overflow: visible !important;
-        z-index: 10000 !important;
-    }
 
-    /* 2. Layer the image layout backdrop right underneath your header links */
-    header.site-header::before {
-        content: "" !important;
-        position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        
-        /* THE JPG IMAGE CORE CONFIGURATION */
-        background-image: url('study-time.jpg') !important; /* Update to url('images/study-time.jpg') if inside a folder */
-        background-size: cover !important;        
-        background-position: center center !important; 
-        background-repeat: no-repeat !important;
-        
-        /* OPACITY SLIDER CONTROLLER VALUE */
-        opacity: 0.18 !important; /* Balanced 12% opacity keeps text headers highly readable */
-        
-        /* SEPARATION INDEX TRACK LAYER */
-        z-index: -1 !important; 
-        pointer-events: none !important; 
-    }
-
-    /* 3. Ensure your text links remain distinct over the layout asset graphics */
-    .logo-text, .nav-link, .dropdown-trigger, .nav-btn-label {
-        position: relative !important;
-        z-index: 2 !important; 
-        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6) !important; 
-    }
-}
 /* ==========================================================================
    MOBILE VIEWPORT: RE-ENABLE & SCALE TOPICS LABELS INLINE
    ========================================================================== */
 @media (max-width: 768px) {
-    
+
     /* 1. Force the target trigger button to display its inner contents inline horizontally */
     header.site-header button.nav-sidebar-trigger-btn#navbarSidebarToggle,
     button.nav-sidebar-trigger-btn,
@@ -2709,22 +3287,28 @@ section.courses:has(.academic-sheet) {
         display: inline-flex !important;
         align-items: center !important;
         justify-content: center !important;
-        gap: 4px !important;            /* Tight 4px air gap space between icon and word */
-        width: auto !important;         /* Releases strict circular dimension bounding locks */
+        gap: 4px !important;
+        /* Tight 4px air gap space between icon and word */
+        width: auto !important;
+        /* Releases strict circular dimension bounding locks */
         height: auto !important;
-        padding: 2px 4px !important;    /* Tight low-profile vertical and side padding cushions */
+        padding: 2px 4px !important;
+        /* Tight low-profile vertical and side padding cushions */
         background: transparent !important;
         border: none !important;
         float: none !important;
-        flex-shrink: 0 !important;      /* Stops text from wrapping or breaking onto rows */
+        flex-shrink: 0 !important;
+        /* Stops text from wrapping or breaking onto rows */
     }
 
     /* 2. Style your icon graphic vector to stay small and proportionate */
     button.nav-sidebar-trigger-btn .nav-trigger-svg-icon,
     .nav-trigger-svg-icon {
-        width: 13px !important;         /* Micro scale down matches text height footprint */
+        width: 13px !important;
+        /* Micro scale down matches text height footprint */
         height: 13px !important;
-        color: #2c537a !important;      /* Core branding blue palette color */
+        color: #2c537a !important;
+        /* Core branding blue palette color */
         display: inline-block !important;
         margin: 0 !important;
     }
@@ -2733,139 +3317,169 @@ section.courses:has(.academic-sheet) {
     button.nav-sidebar-trigger-btn .nav-btn-label,
     #navbarSidebarToggle span.nav-btn-label,
     .nav-btn-label {
-        display: inline-block !important; /* Force-cancels out any display: none or hidden filters */
+        display: inline-block !important;
+        /* Force-cancels out any display: none or hidden filters */
         visibility: visible !important;
         opacity: 1 !important;
         width: auto !important;
         height: auto !important;
-        
+
         /* TYPOGRAPHY MATRIX STYLING */
-        font-size: 11px !important;      /* Delicate compact print size choice */
-        font-weight: 700 !important;     /* Bold text weight for clear reading visibility */
-        color: #475569 !important;      /* Your neutral muted theme layout text link tracking color */
-        white-space: nowrap !important;  /* Locks character line breaks strings onto one row */
+        font-size: 11px !important;
+        /* Delicate compact print size choice */
+        font-weight: 700 !important;
+        /* Bold text weight for clear reading visibility */
+        color: #475569 !important;
+        /* Your neutral muted theme layout text link tracking color */
+        white-space: nowrap !important;
+        /* Locks character line breaks strings onto one row */
     }
 }
+
 /* Base button styles (Desktop & Tablet) */
 .nav-download-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px; /* Spacing between icon and text */
-  padding: 8px 16px;
-  background-color: #007bff; /* Example primary color */
-  color: #ffffff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    /* Spacing between icon and text */
+    padding: 8px 16px;
+    background-color: #007bff;
+    /* Example primary color */
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
 }
 
 .nav-download-btn:hover {
-  background-color: #0056b3;
+    background-color: #234f7e;
 }
 
 /* Mobile responsive styles */
 @media (max-width: 480px) {
-  .nav-download-btn {
-    padding: 10px; /* Equal padding for a square icon button */
-    border-radius: 50%; /* Optional: makes the mobile button circular */
-  }
+    .nav-download-btn {
+        padding: 10px;
+        /* Equal padding for a square icon button */
+        border-radius: 50%;
+        /* Optional: makes the mobile button circular */
+    }
 
-  .nav-download-btn .btn-text {
-    display: none; /* Hides the "Download" text on mobile */
-  }
+    .nav-download-btn .btn-text {
+        display: none;
+        /* Hides the "Download" text on mobile */
+    }
 }
+
 /* Styling for Desktop and Tablet */
 .nav-download-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px; /* Spaces icon and text */
-  padding: 8px 16px;
-  background-color: #f3f4f6; /* Clean background for reading */
-  color: #1f2937; /* Dark text/icon color */
-  border: 1px solid #e5e7eb;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-size: 14px;
-  font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    /* Spaces icon and text */
+    padding: 8px 16px;
+    background-color: #f3f4f6;
+    /* Clean background for reading */
+    color: #1f2937;
+    /* Dark text/icon color */
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 /* Hover state for desktop */
 .nav-download-btn:hover {
-  background-color: #e5e7eb;
+    background-color: #e5e7eb;
 }
 
 /* Mobile Responsive Breakpoint */
 @media (max-width: 576px) {
-  .nav-download-btn {
-    padding: 12px; /* Larger hit target for thumbs */
-    border-radius: 8px;
-    background-color: #ffffff; /* Keeps it distinct on mobile */
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  }
+    .nav-download-btn {
+        padding: 12px;
+        /* Larger hit target for thumbs */
+        border-radius: 8px;
+        background-color: #ffffff;
+        /* Keeps it distinct on mobile */
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
 
-  /* Hides the "Download" text on mobile */
-  .nav-download-btn .btn-text {
-    display: none; 
-  }
+    /* Hides the "Download" text on mobile */
+    .nav-download-btn .btn-text {
+        display: none;
+    }
 }
+
 /* Base settings for the button */
 #gateNextTopicBtn {
-  white-space: nowrap; /* Keeps the phrase on a single line on narrow screens */
-  transition: background-color 0.2s ease, transform 0.1s ease;
+    white-space: nowrap;
+    /* Keeps the phrase on a single line on narrow screens */
+    transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 /* Hover and active states for desktop users */
 #gateNextTopicBtn:hover {
-  background: #004085 !important; /* Overrides inline style color on hover */
+    background: #004085 !important;
+    /* Overrides inline style color on hover */
 }
 
 #gateNextTopicBtn:active {
-  transform: scale(0.97); /* Click visual feedback */
+    transform: scale(0.97);
+    /* Click visual feedback */
 }
 
 /* Mobile responsive view (Screens under 576px wide) */
 @media (max-width: 576px) {
-  #gateNextTopicBtn {
-    padding: 8px 18px !important;    /* Trims padding to make the button physically smaller */
-    font-size: 13px !important;      /* Drops font size down to look balanced */
-    border-radius: 16px !important;  /* Sharpens the pill shape to match the smaller size */
-  }
+    #gateNextTopicBtn {
+        padding: 8px 18px !important;
+        /* Trims padding to make the button physically smaller */
+        font-size: 13px !important;
+        /* Drops font size down to look balanced */
+        border-radius: 16px !important;
+        /* Sharpens the pill shape to match the smaller size */
+    }
 
-  .navigation-container {
-    display: flex;
-    justify-content: center; /* Centers the smaller button on phone layouts */
-    width: 100%;
-  }
+    .navigation-container {
+        display: flex;
+        justify-content: center;
+        /* Centers the smaller button on phone layouts */
+        width: 100%;
+    }
 }
+
 /* Mobile responsive adjustments */
 @media (max-width: 576px) {
-  /* Spacing out the core question wrappers */
-  .msq-question {
-    margin-top: 16px !important;
-    margin-bottom: 12px !important;
-    padding-left: 8px;
-    padding-right: 8px;
-    line-height: 1.5; /* Makes reading paragraphs on small screens easier */
-  }
 
-  /* Spacing individual choice options to prevent accidental mis-clicks */
-  .mcq-option {
-    margin-top: 8px !important;
-    margin-bottom: 8px !important;
-    padding: 10px 14px !important; /* Slightly larger clickable pad for thumbs */
-  }
+    /* Spacing out the core question wrappers */
+    .msq-question {
+        margin-top: 16px !important;
+        margin-bottom: 12px !important;
+        padding-left: 8px;
+        padding-right: 8px;
+        line-height: 1.5;
+        /* Makes reading paragraphs on small screens easier */
+    }
 
-  /* Providing visual separation for your answer explanations */
-  .mcq-answer {
-    margin-top: 12px !important;
-    margin-bottom: 20px !important;
-    padding: 12px !important;
-  }
+    /* Spacing individual choice options to prevent accidental mis-clicks */
+    .mcq-option {
+        margin-top: 8px !important;
+        margin-bottom: 8px !important;
+        padding: 10px 14px !important;
+        /* Slightly larger clickable pad for thumbs */
+    }
+
+    /* Providing visual separation for your answer explanations */
+    .mcq-answer {
+        margin-top: 12px !important;
+        margin-bottom: 20px !important;
+        padding: 12px !important;
+    }
 }
+
 /* Your original marker styles */
 li::marker {
     unicode-bidi: isolate;
@@ -2878,10 +3492,13 @@ li::marker {
 
 /* Apply the layout and spacing to the actual element holding the marker */
 li {
-    list-style-position: inside; 
-    margin-left: 15px;  /* Pushes the entire list item right */
-    margin-bottom: 10px; /* Adds space below each list item */
+    list-style-position: inside;
+    margin-left: 15px;
+    /* Pushes the entire list item right */
+    margin-bottom: 10px;
+    /* Adds space below each list item */
 }
+
 /* Container for the dropdown alignment */
 .dropdown-container {
     position: relative;
@@ -2903,18 +3520,20 @@ li {
 
 /* The actual menu list card box (Hidden by default) */
 .dropdown-menu {
-    display: none; 
+    display: none;
     position: absolute;
     top: 100%;
     left: 0;
     background-color: #ffffff;
-    min-width: 260px; /* Gives perfect width space for your article title */
+    min-width: 260px;
+    /* Gives perfect width space for your article title */
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.12);
     padding: 8px 0;
     margin: 0;
     list-style: none;
     border-radius: 4px;
-    z-index: 9999; /* Ensures it floats directly over all background images or text */
+    z-index: 9999;
+    /* Ensures it floats directly over all background images or text */
 }
 
 /* Individual links inside the dropdown card */
@@ -2937,4 +3556,1209 @@ li {
 /* THE TRIGGER MECHANISM: Shows the card when hovering over the main list item */
 .dropdown-container:hover .dropdown-menu {
     display: block;
+}
+
+/* ==========================================================================
+   CORE SLIDER VIEWPORT (Universal Layout Setup)
+   ========================================================================== */
+.horizontal-slider-viewport {
+    width: 100%;
+    overflow: hidden;
+    padding: 30px 0;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Individual Card Structural Architecture Base Layout */
+.slider-individual-card {
+    width: 310px;
+    /* Perfect desktop fixed base width */
+    flex-shrink: 0;
+    /* Prevents flex box from squeezing cards narrow */
+    border-radius: 12px;
+    padding: 28px 24px 24px 24px;
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.04);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+/* Flex row structuring spaces between cards */
+.slider-card-deck {
+    display: flex;
+    gap: 24px;
+    padding: 0 12px;
+}
+
+/* ==========================================================================
+   YOUR SPECIFIC VALUE GRADIENT CONFIGURATIONS (Emerald, Turquoise, Coral)
+   ========================================================================== */
+.emerald-fade-bg {
+    background: linear-gradient(180deg, rgba(42, 131, 95, 0.22) 0%, rgba(255, 255, 255, 1) 85%);
+    border: 1px solid rgba(42, 131, 95, 0.25);
+}
+
+.emerald-fade-bg .card-link-wrapper a {
+    color: #1b533c;
+}
+
+.turquoise-fade-bg {
+    background: linear-gradient(180deg, rgba(43, 187, 215, 0.25) 0%, rgba(255, 255, 255, 1) 85%);
+    border: 1px solid rgba(43, 187, 215, 0.3);
+}
+
+.turquoise-fade-bg .card-link-wrapper a {
+    color: #145967;
+}
+
+.coral-fade-bg {
+    background: linear-gradient(180deg, rgba(255, 120, 141, 0.25) 0%, rgba(255, 255, 255, 1) 85%);
+    border: 1px solid rgba(255, 120, 141, 0.35);
+}
+
+.coral-fade-bg .card-link-wrapper a {
+    color: #b93348;
+}
+
+/* Typography Configs */
+.card-link-wrapper a {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    text-decoration: none;
+    margin-bottom: 14px;
+}
+
+.card-link-wrapper a:hover {
+    text-decoration: underline;
+}
+
+.card-body-details h3 {
+    font-size: 18px;
+    color: #0f172a;
+    margin: 4px 0 8px 0;
+    font-weight: 700;
+}
+
+.card-body-details p {
+    font-size: 14px;
+    line-height: 1.55;
+    color: #334155;
+    margin: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* ==========================================================================
+   DESKTOP WINDOW VIEWPORTS CONFIGURATION (769px and Up)
+   ========================================================================== */
+@media (min-width: 769px) {
+    .slider-movement-rail {
+        display: flex;
+        width: max-content;
+        animation: crawlLeftwardsTimeline 25s linear infinite;
+    }
+
+    /* Pause sliding when desktop mouse hovers */
+    .horizontal-slider-viewport:hover .slider-movement-rail {
+        animation-play-state: paused;
+    }
+
+    .slider-individual-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+    }
+}
+
+@keyframes crawlLeftwardsTimeline {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+/* ==========================================================================
+   DESKTOP WINDOW VIEWPORTS CONFIGURATION (769px and Up)
+   ========================================================================== */
+@media (min-width: 769px) {
+    .slider-movement-rail {
+        display: flex !important;
+        width: max-content !important;
+        animation: crawlLeftwardsTimeline 25s linear infinite;
+    }
+
+    .horizontal-slider-viewport:hover .slider-movement-rail {
+        animation-play-state: paused;
+    }
+
+    .slider-individual-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+    }
+}
+
+@keyframes crawlLeftwardsTimeline {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+/* ==========================================================================
+   PERFECT MOBILE VIEWPORTS OVERRIDES (768px and Down) - TOTAL GRID STRIP
+   ========================================================================== */
+@media (max-width: 768px) {
+
+    /* Force cleanup on parent layout wrapper elements to override hidden absolute positioning */
+    .card-container,
+    .horizontal-slider-viewport {
+        overflow: hidden !important;
+        padding: 20px 0 !important;
+        width: 100% !important;
+        display: block !important;
+        position: relative !important;
+        background: transparent !important;
+    }
+
+    /* 1. FORCE LINEAR RAIL FLOW (Overrides any grid column wrappers completely) */
+    .slider-movement-rail {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        /* Strictly forces items to stay side-by-side */
+        width: max-content !important;
+        position: relative !important;
+        left: 0 !important;
+        top: 0 !important;
+        float: none !important;
+        grid-template-columns: none !important;
+        /* Erases old grid column tags */
+        animation: mobileCrawlLeftwards 12s linear infinite !important;
+    }
+
+    .slider-card-deck {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        gap: 16px !important;
+        padding: 0 8px !important;
+        width: max-content !important;
+    }
+
+    .slider-card-deck[aria-hidden="true"] {
+        display: flex !important;
+    }
+
+    /* 2. CARD BOX SAFETY BLOCK HOOKS */
+    .slider-individual-card {
+        width: 260px !important;
+        min-width: 260px !important;
+        max-width: 260px !important;
+        flex-shrink: 0 !important;
+        /* Stops the rail from forcing squished boxes */
+        position: relative !important;
+        /* Removes absolute stack locks */
+        left: auto !important;
+        top: auto !important;
+        padding: 22px 18px !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    /* 3. CORE TEXT WRAPPERS PRESERVATION */
+    .card-link-wrapper,
+    .card-body-details {
+        width: 100% !important;
+        display: block !important;
+        white-space: normal !important;
+    }
+
+    .card-link-wrapper a {
+        font-size: 13px !important;
+        line-height: 1.4 !important;
+        white-space: normal !important;
+        word-break: break-word !important;
+    }
+
+    .card-body-details h3 {
+        font-size: 16px !important;
+        margin: 6px 0 !important;
+        white-space: normal !important;
+    }
+
+    .card-body-details p {
+        font-size: 13px !important;
+        line-height: 1.45 !important;
+        white-space: normal !important;
+        display: block !important;
+    }
+}
+
+/* ==========================================================================
+   MATHEMATICAL MOBILE LOOP RESET TIMELINE (3 Cards @ 260px + 3 Gaps @ 16px)
+   ========================================================================== */
+@keyframes mobileCrawlLeftwards {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(-828px, 0, 0);
+    }
+}
+
+/* ==========================================================================
+   COMPLETE MOBILE RECONSTRUCTION OVERRIDES (Screens 768px and Under)
+   ========================================================================== */
+@media (max-width: 768px) {
+
+    /* 0. BASE MOBILE SAFETY RESET */
+    *,
+    *:before,
+    *:after {
+        box-sizing: border-box !important;
+        /* Blocks padding from blowing out widths */
+    }
+
+    body {
+        padding-top: 60px !important;
+        /* Prevents hero content from hiding under nav */
+        overflow-x: hidden !important;
+        /* Stops ugly side horizontal page rattling */
+        width: 100% !important;
+    }
+
+    /* 1. FIXED NAVIGATION BAR CLEANUP */
+    .nav-container {
+        height: 60px !important;
+        padding: 0 12px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        background: #ffffff !important;
+        width: 100% !important;
+        left: 0 !important;
+    }
+
+    .nav-logo a {
+        font-size: 15px !important;
+    }
+
+    .search-wrapper {
+        width: 42% !important;
+        /* Scales down input to clear room for buttons */
+    }
+
+    #navbarSearchInput {
+        padding: 6px 10px !important;
+        font-size: 13px !important;
+    }
+
+    .nav-actions {
+        gap: 6px !important;
+    }
+
+    .nav-link-btn {
+        padding: 6px 10px !important;
+        font-size: 12px !important;
+    }
+
+    .nav-download-btn {
+        padding: 6px 10px !important;
+    }
+
+    .nav-download-btn .btn-text {
+        display: none !important;
+        /* Trims button string payload to maximize space */
+    }
+
+    /* 2. HERO BACKGROUND IMAGE SECTION IMMUNIZATION */
+    .homepage-hero-section {
+        padding: 40px 16px !important;
+        /* Prevents content choking */
+        height: auto !important;
+        min-height: 280px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        background-color: #0f172a !important;
+    }
+
+    .hero-bg-overlay-view {
+        opacity: 0.12 !important;
+        /* Keeps background soft and readable */
+    }
+
+    .hero-foreground-content {
+        width: 100% !important;
+    }
+
+    .hero-foreground-content h1 {
+        font-size: 22px !important;
+        /* Drops text scale down cleanly for phones */
+        line-height: 1.3 !important;
+        margin-bottom: 15px !important;
+        color: #ffffff !important;
+    }
+
+    /* 3. CARD CONTAINER OVERLAP ELIMINATION RESCUE */
+    .card-container,
+    .horizontal-slider-viewport {
+        overflow: hidden !important;
+        padding: 25px 0 !important;
+        width: 100% !important;
+        display: block !important;
+        position: relative !important;
+        clear: both !important;
+    }
+
+    /* Force rail tracking to flow horizontally instead of an absolute stack grid */
+    .slider-movement-rail {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        /* Strictly blocks columns */
+        width: max-content !important;
+        position: relative !important;
+        left: 0 !important;
+        top: 0 !important;
+        grid-template-columns: none !important;
+        /* Erases overlapping grid locks */
+        animation: mobileCrawlLeftwards 14s linear infinite !important;
+        /* Even, readable drift pace */
+    }
+
+    .slider-card-deck {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        gap: 16px !important;
+        padding: 0 8px !important;
+        width: max-content !important;
+    }
+
+    .slider-card-deck[aria-hidden="true"] {
+        display: flex !important;
+    }
+
+    /* Isolates and protects individual card widths */
+    .slider-individual-card {
+        width: 260px !important;
+        min-width: 260px !important;
+        max-width: 260px !important;
+        flex-shrink: 0 !important;
+        /* Strictly stops mobile squeezing constraints */
+        position: relative !important;
+        /* Drops overlapping absolute coordinates */
+        left: auto !important;
+        top: auto !important;
+        padding: 22px 16px !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        flex-direction: column !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+    }
+
+    /* Forces text strings to wrap downward safely */
+    .card-link-wrapper,
+    .card-body-details {
+        width: 100% !important;
+        display: block !important;
+        white-space: normal !important;
+    }
+
+    .card-link-wrapper a {
+        font-size: 13px !important;
+        white-space: normal !important;
+        word-break: break-word !important;
+    }
+
+    .card-body-details h3 {
+        font-size: 16px !important;
+        margin: 6px 0 !important;
+    }
+
+    .card-body-details p {
+        font-size: 13px !important;
+        line-height: 1.45 !important;
+        white-space: normal !important;
+    }
+}
+
+/* ==========================================================================
+   RESPONSIVE HARD-RESET SLIDER LOOP TIMELINE METRICS
+   ========================================================================== */
+@keyframes mobileCrawlLeftwards {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(-828px, 0, 0);
+    }
+
+    /* 3 cards at 260px + 3 gaps at 16px */
+}
+
+/* Only targets mobile screens */
+@media (max-width: 767px) {
+
+    :root {
+        /* Apple's exact System Font Stack */
+        --apple-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    body {
+        font-family: var(--apple-font);
+        /* Apple uses a slightly boosted contrast for mobile readability */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        color: #1d1d1f;
+        /* Apple's primary dark grey body text color */
+        background-color: #ffffff;
+    }
+
+    /* Large Hero Headlines (e.g., iPhone title) */
+    .apple-hero-headline {
+        font-size: 40px;
+        line-height: 1.1;
+        font-weight: 600;
+        /* Apple uses semi-bold/bold for mobile impact */
+        letter-spacing: -0.01em;
+        /* Tighter tracking for large mobile text */
+        margin-bottom: 6px;
+    }
+
+    /* Subheadings right under Hero Headlines */
+    .apple-hero-subheadline {
+        font-size: 20px;
+        line-height: 1.25;
+        font-weight: 400;
+        letter-spacing: 0.005em;
+        color: #1d1d1f;
+    }
+
+    /* Standard Section Headings */
+    h2,
+    .apple-section-heading {
+        font-size: 28px;
+        line-height: 1.15;
+        font-weight: 600;
+        letter-spacing: 0.007em;
+    }
+
+    /* Standard Body Text / Paragraphs */
+    p,
+    .apple-body {
+        font-size: 17px;
+        line-height: 1.47;
+        font-weight: 400;
+        letter-spacing: -0.022em;
+        /* Apple explicitly shrinks tracking on mobile body text */
+        color: #86868b;
+        /* Apple's secondary muted grey text */
+    }
+
+    /* Navigation / Tiny Text Labels */
+    .apple-caption {
+        font-size: 12px;
+        line-height: 1.33;
+        font-weight: 400;
+        letter-spacing: -0.01em;
+    }
+
+}
+
+/* ==========================================
+   📱 TALLER MOBILE VIEW (Screen Width < 768px)
+   ========================================== */
+@media (max-width: 767px) {
+
+    .nav-container {
+        /* Increased top and bottom padding to make the nav bar look taller */
+        padding: 24px 16px 20px 16px;
+
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px 6px;
+
+        /* Elegant gradient transition: Starts deep #FF97D0 pink, fades softly into a white bottom */
+        background: linear-gradient(to bottom, #FF97D0 0%, #FF97D0 45%, #ffffff 100%);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    }
+
+    /* Flexbox Layout Positions */
+    .brand-logo {
+        order: 1;
+    }
+
+    .main-navigation {
+        order: 2;
+    }
+
+    .nav-sidebar-trigger-btn {
+        order: 3;
+    }
+
+    .search-container {
+        order: 4;
+        width: 100%;
+    }
+
+    /* Give Feedback Link Sits in the lower white zone */
+    .nav-feedback-link {
+        order: 5;
+        font-size: 13.5px;
+        font-weight: 600;
+        text-decoration: underline;
+
+        /* Dark charcoal gray provides crisp readability over the faded white area */
+        color: #444444;
+        padding: 6px 0;
+        width: auto;
+    }
+
+    .nav-feedback-link:hover {
+        background-color: transparent;
+    }
+
+    /* Sizing adjustments for your text elements inside the taller nav */
+    .logo-icon {
+        width: 29px;
+        height: 29px;
+        stroke: #ffffff;
+    }
+
+    .logo-text {
+        font-size: 23px;
+        color: #ffffff;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .nav-container {
+        /* The !important tag forces the browser to ignore other color rules */
+        background: linear-gradient(to bottom, #FF97D0 0%, #FF97D0 45%, #ffffff 100%) !important;
+
+        /* Forces the larger height/padding onto the element */
+        padding: 24px 16px 20px 16px !important;
+
+        display: flex !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+    }
+
+}
+
+/* ==========================================
+   📱 MAIN NAVIGATION MOBILE NAVBAR TUNING
+   ========================================== */
+@media (max-width: 767px) {
+
+    /* The Master Navigation Wrapper */
+    .nav-container {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        /* Force internal child components to flow onto new rows */
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 24px 16px 20px 16px !important;
+        /* Premium tall padding scale */
+
+        /* Elegant #FFDBFD pink layout background gradient */
+        background: linear-gradient(to bottom, #FFDBFD 0%, #FFDBFD 45%, #ffffff 100%) !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 🔗 Force the Main Navigation Block onto Row 2 */
+    .main-navigation {
+        order: 3 !important;
+        /* Grid sequence location mapping */
+        width: 100% !important;
+        /* Pushes the entire menu onto its own full row width */
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        /* Aligns links along the left screen border */
+        gap: 8px !important;
+        /* Snug uniform gaps between elements */
+        margin: 8px 0 4px 0 !important;
+        /* Clears layout breathing space */
+    }
+
+    /* 🔘 Formats Links and Dropdown Triggers into Interactive Capsule Buttons */
+    .main-navigation .dropdown-trigger,
+    .main-navigation .nav-link {
+        font-size: 13px !important;
+        font-weight: 600 !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+        padding: 6px 12px !important;
+        background-color: rgba(0, 0, 0, 0.05) !important;
+        /* Modern subtle tint backdrop */
+        border: none !important;
+        border-radius: 6px !important;
+        /* Clean rounded edges */
+        color: #2d2d2f !important;
+        /* Crisp dark charcoal slate text for light pink */
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 4px !important;
+        text-decoration: none !important;
+    }
+
+    /* Adjust Indicator Glyphs (Chevron and Arrow Vector) */
+    .main-navigation .chevron-icon,
+    .main-navigation .arrow {
+        font-size: 9px !important;
+        opacity: 0.7 !important;
+        display: inline-block !important;
+        transform: translateY(0.5px) !important;
+        /* Standard balance flush line alignment */
+    }
+
+    /* Ensures default un-ordered dropdown listings don't break row alignments */
+    .main-navigation .dropdown-wrapper {
+        position: relative !important;
+        display: inline-block !important;
+    }
+}
+
+@media (max-width: 767px) {
+
+    /* Stylish Modern Brand Logo Wrapper Setup */
+    .brand-logo {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 12px !important;
+        /* Extra breathing space between icon and text */
+        text-decoration: none !important;
+        padding: 4px 0 !important;
+        transition: transform 0.2s ease !important;
+    }
+
+    /* Enlarged & Sharp Vector Graphic Brand Icon */
+    .logo-icon {
+        width: 32px !important;
+        /* Boosted icon size for mobile presence */
+        height: 32px !important;
+        fill: none !important;
+        stroke: #1d1d1f !important;
+        /* Rich premium charcoal lines */
+        stroke-width: 2.5 !important;
+        /* Thicker line weight for high-res phone displays */
+        stroke-linecap: round !important;
+        stroke-linejoin: round !important;
+
+        /* Adds a subtle high-end depth shadow underneath the vector icon shapes */
+        filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.08)) !important;
+    }
+
+    /* Elegant Premium Typography Logotype */
+    .logo-text {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+        font-size: 25px !important;
+        /* Noticeably larger text scale */
+        font-weight: 850 !important;
+        /* Ultra-heavy weight for a distinct brand footprint */
+        letter-spacing: -0.04em;
+        /* Tighter, modern tracking like premium brand fonts */
+        color: #1d1d1f !important;
+        /* Clean charcoal gray for light pink backgrounds */
+        text-transform: capitalize !important;
+
+        /* Subtle premium text dimension */
+        text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.03) !important;
+    }
+
+}
+
+/* Import the trending geometric tech font stack */
+@import url('https://googleapis.com');
+
+/* ==========================================
+   📱 MOBILE VIEW ONLY (Screen Width < 768px)
+   ========================================== */
+@media (max-width: 767px) {
+
+    /* 📍 Positioning and Spacing on Top Left */
+    .brand-logo {
+        display: inline-flex !important;
+        align-items: center !important;
+        text-decoration: none !important;
+
+        margin-top: 16px !important;
+        /* Pushes it down slightly from the very top screen edge */
+        padding-left: 16px !important;
+        /* Gives it safe breathing room from the left glass border */
+        gap: 10px !important;
+        /* Clean spacing between the icon and text */
+        width: auto !important;
+    }
+
+    /* 📐 Optimized Mobile Brand Vector Icon */
+    .logo-icon {
+        width: 28px !important;
+        /* Compact mobile presence size */
+        height: 28px !important;
+        fill: none !important;
+        stroke: #1d1d1f !important;
+        /* High-contrast elegant dark charcoal color */
+        stroke-width: 2.4 !important;
+        /* Thicker line weight so it stays crisp on small displays */
+        stroke-linecap: round !important;
+        stroke-linejoin: round !important;
+        filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.05)) !important;
+    }
+
+    /* 🖋️ The Trending Mobile Brand Logotype */
+    .logo-text {
+        /* Loads the imported trending font stack */
+        font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+        font-size: 22px !important;
+        /* Perfect screen scaling ratio for titles */
+        font-weight: 800 !important;
+        /* Heavy, authoritative stance used by premium sites */
+        letter-spacing: -0.04em !important;
+        /* Compressed tracking which transforms text into a unique logo logo */
+        color: #1d1d1f !important;
+        /* Clean charcoal gray for readability */
+        text-transform: capitalize !important;
+    }
+
+}
+
+/* =======================================================
+   📱 MOBILE-ONLY DISPLAY FOR HEADER MAIN-NAVIGATION (< 768px)
+   ======================================================= */
+@media (max-width: 767px) {
+
+    /* 1. Force your master nav wrapper to layout items sequentially */
+    .nav-container {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        /* Lets row items safely stack */
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 24px 16px 20px 16px !important;
+        /* Premium tall layout padding balance */
+    }
+
+    /* 2. 🔗 Binds the Navigation Block cleanly to its own row lane inside the mobile header */
+    .main-navigation {
+        order: 3 !important;
+        /* Dictates layout row sequencing */
+        width: 100% !important;
+        /* Expands full-width to create its own row line */
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        /* Floats your mobile items left-flush */
+        gap: 8px !important;
+        /* Uniform snug space between button chips */
+        margin: 12px 0 6px 0 !important;
+        /* Breathing room underneath the logo row */
+        padding: 0 !important;
+    }
+
+    /* 3. Formats your links into tap-friendly modern interactive capsule buttons */
+    .main-navigation .dropdown-trigger,
+    .main-navigation .nav-link {
+        font-size: 13.5px !important;
+        font-weight: 600 !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+        padding: 6px 12px !important;
+        background-color: rgba(0, 0, 0, 0.05) !important;
+        /* Modern elegant dark tint pill backdrop */
+        border: none !important;
+        border-radius: 6px !important;
+        color: #2d2d2f !important;
+        /* High readability dark charcoal color tone */
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 4px !important;
+        text-decoration: none !important;
+        white-space: nowrap !important;
+        /* Restricts button text strings from wrapping awkwardly */
+    }
+
+    /* 4. Controls dropdown block alignment flow on mobile displays */
+    .main-navigation .dropdown-wrapper {
+        position: relative !important;
+        display: inline-block !important;
+    }
+
+    /* 5. Icon Glyphs scaling metrics */
+    .main-navigation .chevron-icon,
+    .main-navigation .arrow {
+        font-size: 9px !important;
+        opacity: 0.8 !important;
+        display: inline-block !important;
+    }
+}
+
+/* Base Layout Fixes */
+.site-header {
+    width: 100%;
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 8px;
+}
+
+.logo-icon {
+    width: 32px;
+    height: 32px;
+    fill: currentColor;
+}
+
+.logo-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #333;
+}
+
+/* Desktop Wrapper Layout */
+.nav-responsive-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
+    margin-left: 40px;
+    gap: 20px;
+}
+
+.main-navigation {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Mobile Toggle Styling */
+.mobile-nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1010;
+}
+
+.hamburger-line {
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Mobile Transformation States */
+.mobile-nav-toggle.open .hamburger-line:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.mobile-nav-toggle.open .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-nav-toggle.open .hamburger-line:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Responsive Styles for Mobile & Tablets */
+@media (max-width: 992px) {
+    .mobile-nav-toggle {
+        display: flex;
+    }
+
+    .nav-responsive-wrapper {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        flex-direction: column;
+        align-items: stretch;
+        margin-left: 0;
+        padding: 20px;
+        gap: 20px;
+        display: none;
+        /* Hidden by default */
+    }
+
+    .nav-responsive-wrapper.active {
+        display: flex;
+    }
+
+    .main-navigation {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: 15px;
+    }
+
+    .dropdown-wrapper,
+    .dropdown-trigger {
+        width: 100%;
+    }
+
+    .search-container {
+        width: 100%;
+    }
+
+    .search-form {
+        display: flex;
+        width: 100%;
+    }
+
+    .search-input {
+        flex-grow: 1;
+    }
+
+    .nav-sidebar-trigger-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Media query targeting mobile viewports */
+@media (max-width: 992px) {
+
+    /* Shrinks the overall size of the button */
+    .mobile-nav-toggle {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        width: 22px !important;
+        /* Reduced width from 30px */
+        height: 16px !important;
+        /* Reduced height from 21px */
+        background: transparent !important;
+        border: none !important;
+        cursor: pointer !important;
+        padding: 0 !important;
+        z-index: 1010 !important;
+    }
+
+    /* Adjusts the thickness of the individual lines */
+    .hamburger-line {
+        width: 100% !important;
+        height: 2px !important;
+        /* Reduced thickness from 3px */
+        background-color: #333 !important;
+        border-radius: 1px !important;
+        transition: all 0.3s ease !important;
+    }
+
+    /* Micro-adjustments for the smooth CSS transform animation when clicked */
+    .mobile-nav-toggle.open .hamburger-line:nth-child(1) {
+        transform: translateY(7px) rotate(45deg) !important;
+        /* Adjusted for smaller height */
+    }
+
+    .mobile-nav-toggle.open .hamburger-line:nth-child(2) {
+        opacity: 0 !important;
+    }
+
+    .mobile-nav-toggle.open .hamburger-line:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg) !important;
+        /* Adjusted for smaller height */
+    }
+}
+
+/* ==========================================================================
+   MOBILE-ONLY LOGO LAYOUT RESHAPE (Screens under 992px wide)
+   ========================================================================== */
+@media (max-width: 992px) {
+
+    /* 1. Allows the header container to break into two structured rows */
+    .nav-container {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        /* Permits wrapping so logo takes top row */
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 10px 14px !important;
+        gap: 12px 6px !important;
+        /* Adds row spacing and column spacing */
+    }
+
+    /* 2. Isolates the brand link and breaks it out onto its own line block */
+    .brand-logo {
+        display: flex !important;
+        align-items: center !important;
+        flex-basis: 100% !important;
+        /* Forces the logo element to span the entire top width */
+        justify-content: flex-start !important;
+        /* Aligns content strictly to the left */
+        order: -1 !important;
+        /* Guarantees it stays at the absolute top of the source flow */
+    }
+
+    /* 3. Adds target sizing and margin-top specifically to the logo text */
+    .logo-text {
+        display: inline-block !important;
+        /* Required to read top margins accurately */
+        font-size: 1.1rem !important;
+        margin-top: 8px !important;
+        /* Adjust this value to shift it down from the very top border */
+        font-weight: 700 !important;
+    }
+
+    /* 4. Keeps the SVG icon paired nicely beside the shifted text */
+    .logo-icon {
+        width: 24px !important;
+        height: 24px !important;
+        margin-top: 8px !important;
+        /* Matches text offset to stay visually level */
+    }
+
+    /* 5. Dynamically distributes remaining inline nav components onto row 2 */
+    .main-navigation {
+        order: 1 !important;
+    }
+
+    .search-container {
+        order: 2 !important;
+        flex-grow: 1 !important;
+        /* Search stretches to fill central available spacing */
+        min-width: 100px !important;
+    }
+
+    .site-header a[href="feedback.html"] {
+        order: 3 !important;
+    }
+
+    .nav-sidebar-trigger-btn {
+        order: 4 !important;
+    }
+}
+
+/* Display the menu when the trigger button is active */
+.dropdown-menu.show {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Optional: Reset button styling so it matches your original link style */
+button.dropdown-trigger {
+    background: transparent;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* ==========================================================================
+   GLOBAL VIEWPORT TOP GAP RESET (Desktop & Mobile)
+   ========================================================================== */
+
+/* 1. Strips out default browser layout margins causing top gaps */
+html,
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* 2. Locks the header to the exact top edge of the screen */
+.site-header {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    top: 0 !important;
+    position: relative;
+    /* Change to 'fixed' or 'sticky' if you want it to scroll with the page */
+}
+
+/* 3. Normalizes container tracking margins */
+.nav-container {
+    margin-top: 0 !important;
+}
+
+.logo {
+    background-image: url(zxx.png);
+    height: 50px;
+    width: 50px;
+    /* Changed from 100% to match height */
+    background-size: contain;
+    /* Changed from cover to prevent cropping */
+    background-repeat: no-repeat;
+    /* Prevents the logo from repeating */
+    background-position: center;
+    /* Centers the logo in the box */
+}
+
+.site-logo-txt {
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: var(--apple-font);
+    font-weight: 800;
+    font-size: 32px;
+}
+
+@media (max-width: 768px) {
+
+    /* 1. Force the main header element to be solid white */
+    header.site-header {
+        background: #ffffff !important;
+        background-image: none !important;
+        border-bottom: 1px solid #e0e0e0;
+        /* Optional: adds a clean divider line */
+    }
+
+    /* 2. Clear any background color or gradient on the internal container */
+    .nav-container {
+        background: transparent !important;
+        background-image: none !important;
+    }
+
+    /* 3. Ensure the text and hamburger toggle stay visible on the white background */
+    .site-logo-txt {
+        color: #111111 !important;
+    }
+
+    .hamburger-line {
+        background-color: #111111 !important;
+    }
 }
